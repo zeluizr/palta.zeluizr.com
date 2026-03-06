@@ -11,11 +11,6 @@ export default function Footer() {
         {/* Logo */}
         <a href="/" className="text-3xl leading-none">🥑</a>
 
-        {/* Tagline */}
-        <p className="text-sm text-neutral-400">
-          {t("footer.madeWith")} <span>🥑</span> {t("footer.forLatam")}
-        </p>
-
         {/* Links */}
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-400">
           <a href="https://github.com/zeluizr/palta" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>

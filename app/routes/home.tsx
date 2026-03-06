@@ -26,10 +26,10 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const lang = data?.lang ?? "es";
   const title =
     lang === "pt"
-      ? "palta — Formatação e validação de dados da América Latina"
+      ? "Formatação e validação de dados da América Latina"
       : lang === "en"
-      ? "palta — Format & validate Latin American data"
-      : "palta — Formateo y validación de datos de América Latina";
+      ? "Format & validate Latin American data"
+      : "Formateo y validación de datos de América Latina";
   const description =
     lang === "pt"
       ? "Biblioteca TypeScript para formatar e validar CPF, RUT, CUIT, NIT, RUC, moedas, telefones e CEPs. Zero dependencies, tree-shakeable."
