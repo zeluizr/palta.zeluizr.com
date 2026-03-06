@@ -2,13 +2,6 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
-import { cn } from "~/lib/utils";
-
-const langs = [
-  { code: "es", label: "ES" },
-  { code: "en", label: "EN" },
-  { code: "pt", label: "PT" },
-];
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -16,7 +9,8 @@ export default function Header() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const currentLang = langs.find((l) => i18n.language.startsWith(l.code))?.code ?? "es";
+  const currentLang =
+    i18n.language.startsWith("pt") ? "pt" : i18n.language.startsWith("en") ? "en" : "es";
 
   const switchLang = (lang: string) => {
     const params = new URLSearchParams(location.search);
@@ -32,23 +26,16 @@ export default function Header() {
     { href: "#api", label: t("header.api") },
   ];
 
-  const LangSwitcher = ({ className }: { className?: string }) => (
-    <div className={cn("flex items-center bg-neutral-900 border border-neutral-800 rounded-lg p-0.5", className)}>
-      {langs.map((lang) => (
-        <button
-          key={lang.code}
-          onClick={() => switchLang(lang.code)}
-          className={cn(
-            "px-2.5 py-1 rounded-md text-xs font-medium transition-colors",
-            currentLang === lang.code
-              ? "bg-neutral-700 text-white"
-              : "text-neutral-500 hover:text-neutral-300"
-          )}
-        >
-          {lang.label}
-        </button>
-      ))}
-    </div>
+  const LangSelect = () => (
+    <select
+      value={currentLang}
+      onChange={(e) => switchLang(e.target.value)}
+      className="bg-transparent text-neutral-400 hover:text-white text-sm border-none outline-none cursor-pointer transition-colors"
+    >
+      <option value="es" className="bg-neutral-900">ES</option>
+      <option value="en" className="bg-neutral-900">EN</option>
+      <option value="pt" className="bg-neutral-900">PT</option>
+    </select>
   );
 
   return (
@@ -70,8 +57,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden sm:flex items-center gap-3">
-          <LangSwitcher />
+        <div className="hidden sm:flex items-center gap-4">
+          <LangSelect />
           <a
             href="#install"
             className="bg-white text-neutral-900 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-neutral-200 transition-colors"
@@ -102,7 +89,7 @@ export default function Header() {
             </a>
           ))}
           <div className="flex items-center justify-between">
-            <LangSwitcher />
+            <LangSelect />
             <a
               href="#install"
               className="bg-white text-neutral-900 text-sm font-medium px-4 py-2 rounded-lg hover:bg-neutral-200 transition-colors"
