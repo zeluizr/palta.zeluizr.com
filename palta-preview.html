@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>palta — Formateo y validación de datos de América Latina</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            palta: {
+              50: '#f4faf0', 100: '#e6f5dc', 200: '#ceebbc', 300: '#aedd8f',
+              400: '#8bcb62', 500: '#6ab344', 600: '#518f32', 700: '#3f6e29',
+              800: '#355825', 900: '#2d4b22', 950: '#15290e',
+            },
+            brasil: '#009c3b',
+            chile: '#d52b1e',
+            argentina: '#75aadb',
+            colombia: '#fcd116',
+            peru: '#d91023',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .bg-grid {
+      background-image: radial-gradient(circle, #333 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    .slide-up { animation: slideUp 0.6s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .code-block::-webkit-scrollbar { height: 6px; }
+    .code-block::-webkit-scrollbar-track { background: #1a1a1a; }
+    .code-block::-webkit-scrollbar-thumb { background: #404040; border-radius: 3px; }
+    .tab-active { color: #518f32; border-bottom: 2px solid #518f32; }
+    .tab-inactive { color: #737373; border-bottom: 2px solid transparent; }
+    .tab-inactive:hover { color: #404040; }
+    /* Install tab styles */
+    .install-tab-active { background: #518f32; color: white; }
+    .install-tab-inactive { background: transparent; color: #a3a3a3; }
+    .install-tab-inactive:hover { color: white; }
+  </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 font-sans antialiased">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
+    <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 text-[15px] font-semibold">
+        <span class="text-xl">🥑</span> palta
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm text-neutral-400">
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#countries" class="hover:text-white transition-colors" data-i18n="navCountries">Países</a>
+        <a href="#install" class="hover:text-white transition-colors" data-i18n="navInstall">Instalar</a>
+        <a href="#api" class="hover:text-white transition-colors">API</a>
+      </nav>
+      <a href="#install" class="hidden sm:inline-flex bg-white text-neutral-900 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-neutral-200 transition-colors" data-i18n="heroCta">
+          Comenzar ahora
+        </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="relative px-6 py-32 sm:py-40 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-palta-950/30 to-neutral-950 bg-grid"></div>
+      <div class="relative z-10 max-w-5xl mx-auto text-center slide-up">
+        <button onclick="copyToClipboard('npm install palta', this)" class="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-sm font-mono text-neutral-300 px-4 py-2 rounded-full mb-8 transition-colors cursor-pointer">
+          <span>$ npm install palta</span>
+          <svg class="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </button>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <span data-i18n="heroTitle">Formatea y valida datos<br>de toda </span><span class="text-palta-400 underline decoration-palta-700 decoration-4 underline-offset-4" data-i18n="heroHighlight">América Latina</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed" data-i18n="heroSubtitle">
+          RUT, CUIT, CPF, NIT, RUC, monedas, teléfonos y códigos postales — todo en una biblioteca TypeScript. Zero dependencies. Tree-shakeable.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#install" class="bg-palta-600 hover:bg-palta-700 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base" data-i18n="heroCta">
+            Comenzar ahora
+          </a>
+          <a href="https://github.com" class="border border-neutral-700 hover:border-neutral-500 text-neutral-300 font-medium px-8 py-3 rounded-xl transition-colors text-base flex items-center gap-2" data-i18n="heroCtaSecondaryIcon">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span data-i18n="heroCtaSecondary">Ver en GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="px-6 py-8 border-y border-neutral-800 bg-neutral-900/50">
+      <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> Zero dependencies</span>
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> Tree-shakeable</span>
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> TypeScript strict</span>
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> 5 países</span>
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> &lt; 5kb gzipped</span>
+        <span class="flex items-center gap-2 text-sm font-medium text-neutral-400"><span class="w-2 h-2 bg-palta-500 rounded-full"></span> MIT License</span>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="px-6 py-24">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="featuresTitle">Todo lo que necesitas</h2>
+          <p class="mt-4 text-neutral-400 text-lg" data-i18n="featuresSubtitle">Una API consistente para 5 países, 5 tipos de datos.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featureDocTitle">Documentos fiscales</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featureDocDesc">Valida y formatea RUT, CUIT, CUIL, CPF, CNPJ, NIT, CC, RUC y DNI con verificación de dígito verificador.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featureCurrTitle">Monedas</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featureCurrDesc">Formatea y parsea CLP, ARS, BRL, COP y PEN con separadores y símbolos correctos de cada país.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featurePhoneTitle">Teléfonos</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featurePhoneDesc">Formatea celular y fijo con código de país, prefijo y máscara correcta para cada región.</p>
+          </div>
+          <!-- Card 4 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featureZipTitle">Códigos postales</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featureZipDesc">Formatea y valida códigos postales de Chile, Argentina, Brasil, Colombia y Perú.</p>
+          </div>
+          <!-- Card 5 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featureDetectTitle">Detección automática</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featureDetectDesc">Pasa cualquier string y palta detecta automáticamente el país, tipo de documento y si es válido.</p>
+          </div>
+          <!-- Card 6 -->
+          <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all">
+            <div class="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="font-semibold text-base mb-2" data-i18n="featureTsTitle">TypeScript nativo</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed" data-i18n="featureTsDesc">Tipado fuerte en toda la API. Autocomplete en el editor para cada función, país y formato.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE PREVIEW -->
+    <section class="px-6 py-24 bg-neutral-900">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="codeTitle">Así de simple</h2>
+          <p class="mt-4 text-neutral-400 text-lg" data-i18n="codeSubtitle">Importa el país, usa la función. Sin configuración.</p>
+        </div>
+        <div class="bg-neutral-950 rounded-2xl overflow-hidden shadow-2xl">
+          <!-- Tabs -->
+          <div class="flex border-b border-neutral-800 px-6">
+            <button onclick="showTab('docs')" id="tab-docs" class="tab-active px-4 py-3 text-sm font-medium transition-colors" data-i18n="tabDocs">Documentos</button>
+            <button onclick="showTab('currency')" id="tab-currency" class="tab-inactive px-4 py-3 text-sm font-medium transition-colors" data-i18n="tabCurrency">Monedas</button>
+            <button onclick="showTab('phone')" id="tab-phone" class="tab-inactive px-4 py-3 text-sm font-medium transition-colors" data-i18n="tabPhone">Teléfonos</button>
+            <button onclick="showTab('detect')" id="tab-detect" class="tab-inactive px-4 py-3 text-sm font-medium transition-colors" data-i18n="tabDetect">Detectar</button>
+          </div>
+          <!-- Code Panels -->
+          <div class="p-6 overflow-x-auto code-block">
+            <pre id="code-docs" class="text-sm font-mono leading-7"><span class="text-purple-400">import</span> <span class="text-neutral-100">{ br, cl, ar }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>
+
+<span class="text-neutral-500">// Brasil</span>
+<span class="text-neutral-100">br.cpf.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'12345678901'</span><span class="text-neutral-100">)</span>     <span class="text-neutral-500">// '123.456.789-01'</span>
+<span class="text-neutral-100">br.cpf.</span><span class="text-yellow-400">validate</span><span class="text-neutral-100">(</span><span class="text-green-400">'12345678901'</span><span class="text-neutral-100">)</span>   <span class="text-orange-400">// true</span>
+<span class="text-neutral-100">br.cnpj.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'11222333000181'</span><span class="text-neutral-100">)</span> <span class="text-neutral-500">// '11.222.333/0001-81'</span>
+
+<span class="text-neutral-500">// Chile</span>
+<span class="text-neutral-100">cl.rut.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'12345678-9'</span><span class="text-neutral-100">)</span>      <span class="text-neutral-500">// '12.345.678-9'</span>
+<span class="text-neutral-100">cl.rut.</span><span class="text-yellow-400">validate</span><span class="text-neutral-100">(</span><span class="text-green-400">'12345678-9'</span><span class="text-neutral-100">)</span>    <span class="text-orange-400">// true</span>
+
+<span class="text-neutral-500">// Argentina</span>
+<span class="text-neutral-100">ar.cuit.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'20123456789'</span><span class="text-neutral-100">)</span>    <span class="text-neutral-500">// '20-12345678-9'</span>
+<span class="text-neutral-100">ar.cuit.</span><span class="text-yellow-400">validate</span><span class="text-neutral-100">(</span><span class="text-green-400">'20123456789'</span><span class="text-neutral-100">)</span>  <span class="text-orange-400">// true</span></pre>
+
+            <pre id="code-currency" class="text-sm font-mono leading-7 hidden"><span class="text-purple-400">import</span> <span class="text-neutral-100">{ br, cl, ar, co, pe }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>
+
+<span class="text-neutral-100">br.</span><span class="text-yellow-400">currency</span><span class="text-neutral-100">(</span><span class="text-orange-400">1234.56</span><span class="text-neutral-100">)</span>    <span class="text-neutral-500">// 'R$ 1.234,56'</span>
+<span class="text-neutral-100">cl.</span><span class="text-yellow-400">currency</span><span class="text-neutral-100">(</span><span class="text-orange-400">15990</span><span class="text-neutral-100">)</span>      <span class="text-neutral-500">// '$15.990'</span>
+<span class="text-neutral-100">ar.</span><span class="text-yellow-400">currency</span><span class="text-neutral-100">(</span><span class="text-orange-400">4500.50</span><span class="text-neutral-100">)</span>    <span class="text-neutral-500">// '$ 4.500,50'</span>
+<span class="text-neutral-100">co.</span><span class="text-yellow-400">currency</span><span class="text-neutral-100">(</span><span class="text-orange-400">89900</span><span class="text-neutral-100">)</span>      <span class="text-neutral-500">// '$ 89.900'</span>
+<span class="text-neutral-100">pe.</span><span class="text-yellow-400">currency</span><span class="text-neutral-100">(</span><span class="text-orange-400">1234.56</span><span class="text-neutral-100">)</span>    <span class="text-neutral-500">// 'S/ 1,234.56'</span></pre>
+
+            <pre id="code-phone" class="text-sm font-mono leading-7 hidden"><span class="text-purple-400">import</span> <span class="text-neutral-100">{ br, cl, ar }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>
+
+<span class="text-neutral-100">br.phone.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'11999887766'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// '(11) 99988-7766'</span>
+
+<span class="text-neutral-100">cl.phone.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'912345678'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// '+56 9 1234 5678'</span>
+
+<span class="text-neutral-100">ar.phone.</span><span class="text-yellow-400">format</span><span class="text-neutral-100">(</span><span class="text-green-400">'1155667788'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// '+54 9 11 5566-7788'</span></pre>
+
+            <pre id="code-detect" class="text-sm font-mono leading-7 hidden"><span class="text-purple-400">import</span> <span class="text-neutral-100">{ detect }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>
+
+<span class="text-yellow-400">detect</span><span class="text-neutral-100">(</span><span class="text-green-400">'12.345.678-9'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// { country: 'CL', type: 'rut', valid: true }</span>
+
+<span class="text-yellow-400">detect</span><span class="text-neutral-100">(</span><span class="text-green-400">'123.456.789-01'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// { country: 'BR', type: 'cpf', valid: true }</span>
+
+<span class="text-yellow-400">detect</span><span class="text-neutral-100">(</span><span class="text-green-400">'20-12345678-9'</span><span class="text-neutral-100">)</span>
+<span class="text-neutral-500">// { country: 'AR', type: 'cuit', valid: true }</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTRIES -->
+    <section id="countries" class="px-6 py-24">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="countriesTitle">5 países, una API</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="border border-neutral-800 rounded-xl p-5 border-l-4 border-l-brasil hover:shadow-sm transition-all">
+            <div class="text-2xl mb-2">&#x1F1E7;&#x1F1F7;</div>
+            <h3 class="font-semibold mb-1">Brasil</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">CPF &middot; CNPJ &middot; BRL &middot; Telefone &middot; CEP</p>
+          </div>
+          <div class="border border-neutral-800 rounded-xl p-5 border-l-4 border-l-chile hover:shadow-sm transition-all">
+            <div class="text-2xl mb-2">&#x1F1E8;&#x1F1F1;</div>
+            <h3 class="font-semibold mb-1">Chile</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">RUT &middot; CLP &middot; Telefone &middot; C&oacute;d. Postal</p>
+          </div>
+          <div class="border border-neutral-800 rounded-xl p-5 border-l-4 border-l-argentina hover:shadow-sm transition-all">
+            <div class="text-2xl mb-2">&#x1F1E6;&#x1F1F7;</div>
+            <h3 class="font-semibold mb-1">Argentina</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">CUIT/CUIL &middot; DNI &middot; ARS &middot; Tel &middot; CPA</p>
+          </div>
+          <div class="border border-neutral-800 rounded-xl p-5 border-l-4 border-l-colombia hover:shadow-sm transition-all">
+            <div class="text-2xl mb-2">&#x1F1E8;&#x1F1F4;</div>
+            <h3 class="font-semibold mb-1">Colombia</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">NIT &middot; CC &middot; COP &middot; Telefone &middot; C&oacute;d. Postal</p>
+          </div>
+          <div class="border border-neutral-800 rounded-xl p-5 border-l-4 border-l-peru hover:shadow-sm transition-all">
+            <div class="text-2xl mb-2">&#x1F1F5;&#x1F1EA;</div>
+            <h3 class="font-semibold mb-1">Per&uacute;</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">RUC &middot; DNI &middot; PEN &middot; Telefone &middot; C&oacute;d. Postal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section id="install" class="px-6 py-24 bg-neutral-950 text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="installTitle">Listo para usar</h2>
+          <p class="mt-4 text-neutral-400 text-lg" data-i18n="installSubtitle">Instala con tu gestor de paquetes favorito.</p>
+        </div>
+
+        <!-- Tabbed package managers -->
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden mb-12">
+          <div class="flex border-b border-neutral-800 px-2 pt-2 gap-1 overflow-x-auto">
+            <button onclick="showPkg('npm')" id="pkg-tab-npm" class="install-tab-active text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">npm</button>
+            <button onclick="showPkg('yarn')" id="pkg-tab-yarn" class="install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">yarn</button>
+            <button onclick="showPkg('pnpm')" id="pkg-tab-pnpm" class="install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">pnpm</button>
+            <button onclick="showPkg('bun')" id="pkg-tab-bun" class="install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">bun</button>
+            <button onclick="showPkg('deno')" id="pkg-tab-deno" class="install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">deno</button>
+            <button onclick="showPkg('npx')" id="pkg-tab-npx" class="install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap">npx</button>
+          </div>
+          <div class="p-6 flex items-center justify-between gap-4">
+            <code id="pkg-cmd-npm" class="text-sm sm:text-base font-mono text-neutral-200">$ npm install palta</code>
+            <code id="pkg-cmd-yarn" class="text-sm sm:text-base font-mono text-neutral-200 hidden">$ yarn add palta</code>
+            <code id="pkg-cmd-pnpm" class="text-sm sm:text-base font-mono text-neutral-200 hidden">$ pnpm add palta</code>
+            <code id="pkg-cmd-bun" class="text-sm sm:text-base font-mono text-neutral-200 hidden">$ bun add palta</code>
+            <code id="pkg-cmd-deno" class="text-sm sm:text-base font-mono text-neutral-200 hidden">$ deno add npm:palta</code>
+            <code id="pkg-cmd-npx" class="text-sm sm:text-base font-mono text-neutral-200 hidden">$ npx jsr add palta</code>
+            <button onclick="copyPkgCmd()" id="pkg-copy-btn" class="flex-shrink-0 text-neutral-500 hover:text-white transition-colors p-2 rounded-lg hover:bg-neutral-800">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tree-shakeable imports -->
+        <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+          <div class="text-sm text-neutral-400 mb-3 font-medium" data-i18n="installImport">Importa solo lo que necesitas</div>
+          <pre class="text-sm font-mono leading-7"><span class="text-purple-400">import</span> <span class="text-neutral-100">{ br }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>        <span class="text-neutral-500">// ~1.2kb</span>
+<span class="text-purple-400">import</span> <span class="text-neutral-100">{ cl }</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta'</span>        <span class="text-neutral-500">// ~0.8kb</span>
+<span class="text-purple-400">import</span> <span class="text-neutral-100">br</span> <span class="text-purple-400">from</span> <span class="text-green-400">'palta/br'</span>        <span class="text-neutral-500">// alternativa</span></pre>
+          <div class="mt-4 text-xs text-neutral-500" data-i18n="installTreeShake">Tree-shakeable — tu bundle solo incluye el código que usas.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API TABLE -->
+    <section id="api" class="px-6 py-24">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="apiTitle">API completa</h2>
+          <p class="mt-4 text-neutral-400 text-lg" data-i18n="apiSubtitle">Cada módulo sigue la misma interfaz consistente.</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead>
+              <tr class="border-b border-neutral-700 bg-neutral-900">
+                <th class="px-4 py-3 font-semibold text-neutral-300" data-i18n="apiFunction">Función</th>
+                <th class="px-4 py-3 font-semibold text-neutral-300" data-i18n="apiDescription">Descripción</th>
+                <th class="px-4 py-3 font-semibold text-neutral-300" data-i18n="apiExample">Ejemplo</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-800">
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">.format()</td><td class="px-4 py-3 text-neutral-400">Formatea con puntuación</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">'12345678901' &rarr; '123.456.789-01'</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">.strip()</td><td class="px-4 py-3 text-neutral-400">Remueve formato</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">'123.456.789-01' &rarr; '12345678901'</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">.validate()</td><td class="px-4 py-3 text-neutral-400">Valida dígito verificador</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">true | false</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">.mask</td><td class="px-4 py-3 text-neutral-400">Máscara para inputs</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">'###.###.###-##'</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">currency()</td><td class="px-4 py-3 text-neutral-400">Formatea número en moneda</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">1234.56 &rarr; 'R$ 1.234,56'</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">currency.parse()</td><td class="px-4 py-3 text-neutral-400">Moneda a número</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">'R$ 1.234,56' &rarr; 1234.56</td></tr>
+              <tr><td class="px-4 py-3 font-mono text-xs text-palta-700">detect()</td><td class="px-4 py-3 text-neutral-400">Detecta país y tipo</td><td class="px-4 py-3 font-mono text-xs text-neutral-500">{ country, type, valid }</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-6 py-8 bg-neutral-900 border-t border-neutral-800">
+    <div class="max-w-5xl mx-auto flex flex-col gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 text-sm text-neutral-400">
+          <span data-i18n="footerMade">Hecho con</span> <span>🥑</span> <span data-i18n="footerLatam">para Am&eacute;rica Latina</span>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-neutral-400">
+          <a href="#" class="hover:text-white transition-colors">GitHub</a>
+          <a href="#" class="hover:text-white transition-colors">npm</a>
+          <span>&copy; 2026 palta &middot; MIT</span>
+        </div>
+      </div>
+      <!-- Language switcher -->
+      <div class="flex items-center justify-center gap-1 text-xs text-neutral-500">
+        <button onclick="setLang('es')" id="lang-es" class="px-2 py-1 rounded text-white transition-colors">ES</button>
+        <span class="text-neutral-700">|</span>
+        <button onclick="setLang('pt')" id="lang-pt" class="px-2 py-1 rounded text-neutral-500 hover:text-neutral-300 transition-colors">PT</button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Code tab switching
+    function showTab(tab) {
+      ['docs', 'currency', 'phone', 'detect'].forEach(t => {
+        document.getElementById('code-' + t).classList.toggle('hidden', t !== tab);
+        document.getElementById('tab-' + t).className = t === tab ? 'tab-active px-4 py-3 text-sm font-medium transition-colors' : 'tab-inactive px-4 py-3 text-sm font-medium transition-colors';
+      });
+    }
+
+    // Package manager tabs
+    const pkgCmds = { npm: 'npm install palta', yarn: 'yarn add palta', pnpm: 'pnpm add palta', bun: 'bun add palta', deno: 'deno add npm:palta', npx: 'npx jsr add palta' };
+    let activePkg = 'npm';
+    function showPkg(pkg) {
+      activePkg = pkg;
+      Object.keys(pkgCmds).forEach(p => {
+        document.getElementById('pkg-cmd-' + p).classList.toggle('hidden', p !== pkg);
+        document.getElementById('pkg-tab-' + p).className = p === pkg
+          ? 'install-tab-active text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap'
+          : 'install-tab-inactive text-xs font-medium px-4 py-2 rounded-t-lg transition-colors whitespace-nowrap';
+      });
+    }
+    function copyPkgCmd() {
+      navigator.clipboard.writeText(pkgCmds[activePkg]);
+      const btn = document.getElementById('pkg-copy-btn');
+      btn.innerHTML = '<svg class="w-5 h-5 text-palta-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+      setTimeout(() => {
+        btn.innerHTML = '<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+      }, 1500);
+    }
+
+    // Copy to clipboard
+    function copyToClipboard(text, el) {
+      navigator.clipboard.writeText(text);
+    }
+
+    // i18n translations
+    const translations = {
+      pt: {
+        navCountries: 'Países',
+        navInstall: 'Instalar',
+        heroTitle: 'Formate e valide dados<br>de toda a ',
+        heroHighlight: 'América Latina',
+        heroSubtitle: 'CPF, RUT, CUIT, NIT, RUC, moedas, telefones e CEPs — tudo em uma biblioteca TypeScript. Zero dependencies. Tree-shakeable.',
+        heroCta: 'Começar agora',
+        heroCtaSecondary: 'Ver no GitHub',
+        featuresTitle: 'Tudo que você precisa',
+        featuresSubtitle: 'Uma API consistente para 5 países, 5 tipos de dados.',
+        featureDocTitle: 'Documentos fiscais',
+        featureDocDesc: 'Valide e formate CPF, CNPJ, RUT, CUIT, CUIL, NIT, CC, RUC e DNI com verificação de dígito verificador.',
+        featureCurrTitle: 'Moedas',
+        featureCurrDesc: 'Formate e parse BRL, CLP, ARS, COP e PEN com separadores e símbolos corretos de cada país.',
+        featurePhoneTitle: 'Telefones',
+        featurePhoneDesc: 'Formate celular e fixo com código de país, DDD e máscara correta para cada região.',
+        featureZipTitle: 'CEPs / Códigos Postais',
+        featureZipDesc: 'Formate e valide códigos postais do Brasil, Chile, Argentina, Colômbia e Peru.',
+        featureDetectTitle: 'Detecção automática',
+        featureDetectDesc: 'Passe qualquer string e o palta detecta automaticamente o país, tipo de documento e se é válido.',
+        featureTsTitle: 'TypeScript nativo',
+        featureTsDesc: 'Tipagem forte em toda a API. Autocomplete no editor para cada função, país e formato.',
+        codeTitle: 'Simples assim',
+        codeSubtitle: 'Importe o país, use a função. Sem configuração.',
+        tabDocs: 'Documentos', tabCurrency: 'Moedas', tabPhone: 'Telefones', tabDetect: 'Detectar',
+        countriesTitle: '5 países, uma API',
+        installTitle: 'Pronto para usar',
+        installSubtitle: 'Instale com seu gerenciador de pacotes favorito.',
+        installImport: 'Importe só o que precisa',
+        installTreeShake: 'Tree-shakeable — seu bundle só inclui o código que você usa.',
+        apiTitle: 'API completa',
+        apiSubtitle: 'Cada módulo segue a mesma interface consistente.',
+        apiFunction: 'Função', apiDescription: 'Descrição', apiExample: 'Exemplo',
+        footerMade: 'Feito com', footerLatam: 'para a América Latina',
+      },
+      es: {
+        navCountries: 'Países',
+        navInstall: 'Instalar',
+        heroTitle: 'Formatea y valida datos<br>de toda ',
+        heroHighlight: 'América Latina',
+        heroSubtitle: 'RUT, CUIT, CPF, NIT, RUC, monedas, teléfonos y códigos postales — todo en una biblioteca TypeScript. Zero dependencies. Tree-shakeable.',
+        heroCta: 'Comenzar ahora',
+        heroCtaSecondary: 'Ver en GitHub',
+        featuresTitle: 'Todo lo que necesitas',
+        featuresSubtitle: 'Una API consistente para 5 países, 5 tipos de datos.',
+        featureDocTitle: 'Documentos fiscales',
+        featureDocDesc: 'Valida y formatea RUT, CUIT, CUIL, CPF, CNPJ, NIT, CC, RUC y DNI con verificación de dígito verificador.',
+        featureCurrTitle: 'Monedas',
+        featureCurrDesc: 'Formatea y parsea CLP, ARS, BRL, COP y PEN con separadores y símbolos correctos de cada país.',
+        featurePhoneTitle: 'Teléfonos',
+        featurePhoneDesc: 'Formatea celular y fijo con código de país, prefijo y máscara correcta para cada región.',
+        featureZipTitle: 'Códigos postales',
+        featureZipDesc: 'Formatea y valida códigos postales de Chile, Argentina, Brasil, Colombia y Perú.',
+        featureDetectTitle: 'Detección automática',
+        featureDetectDesc: 'Pasa cualquier string y palta detecta automáticamente el país, tipo de documento y si es válido.',
+        featureTsTitle: 'TypeScript nativo',
+        featureTsDesc: 'Tipado fuerte en toda la API. Autocomplete en el editor para cada función, país y formato.',
+        codeTitle: 'Así de simple',
+        codeSubtitle: 'Importa el país, usa la función. Sin configuración.',
+        tabDocs: 'Documentos', tabCurrency: 'Monedas', tabPhone: 'Teléfonos', tabDetect: 'Detectar',
+        countriesTitle: '5 países, una API',
+        installTitle: 'Listo para usar',
+        installSubtitle: 'Instala con tu gestor de paquetes favorito.',
+        installImport: 'Importa solo lo que necesitas',
+        installTreeShake: 'Tree-shakeable — tu bundle solo incluye el código que usas.',
+        apiTitle: 'API completa',
+        apiSubtitle: 'Cada módulo sigue la misma interfaz consistente.',
+        apiFunction: 'Función', apiDescription: 'Descripción', apiExample: 'Ejemplo',
+        footerMade: 'Hecho con', footerLatam: 'para América Latina',
+      }
+    };
+
+    let currentLang = 'es';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.getElementById('lang-es').className = lang === 'es' ? 'px-2 py-1 rounded text-white transition-colors' : 'px-2 py-1 rounded text-neutral-500 hover:text-neutral-300 transition-colors';
+      document.getElementById('lang-pt').className = lang === 'pt' ? 'px-2 py-1 rounded text-white transition-colors' : 'px-2 py-1 rounded text-neutral-500 hover:text-neutral-300 transition-colors';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key] !== undefined) {
+          if (key === 'heroTitle') el.innerHTML = translations[currentLang][key];
+          else el.textContent = translations[currentLang][key];
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
