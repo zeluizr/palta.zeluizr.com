@@ -65,23 +65,23 @@ export default {
     title: "5 países, una API",
     brasil: {
       name: "Brasil",
-      docs: "CPF · CNPJ · BRL · Teléfono · CEP",
+      docs: "CPF · CNPJ · BRL · Telefone · CEP",
     },
     chile: {
       name: "Chile",
-      docs: "RUT · CLP · Teléfono · Código Postal",
+      docs: "RUT · CLP · Telefone · Cód. Postal",
     },
     argentina: {
       name: "Argentina",
-      docs: "CUIT/CUIL · DNI · ARS · Teléfono · CPA",
+      docs: "CUIT/CUIL · DNI · ARS · Tel · CPA",
     },
     colombia: {
       name: "Colombia",
-      docs: "NIT · CC · COP · Teléfono · Código Postal",
+      docs: "NIT · CC · COP · Telefone · Cód. Postal",
     },
     peru: {
       name: "Perú",
-      docs: "RUC · DNI · PEN · Teléfono · Código Postal",
+      docs: "RUC · DNI · PEN · Telefone · Cód. Postal",
     },
   },
 
