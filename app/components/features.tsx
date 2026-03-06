@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 import { FileText, DollarSign, Phone, MapPin, Search, Code2 } from "lucide-react";
 
 const icons = [FileText, DollarSign, Phone, MapPin, Search, Code2];
@@ -22,12 +21,8 @@ export default function Features() {
           {keys.map((key, i) => {
             const Icon = icons[i];
             return (
-              <motion.div
+              <div
                 key={key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-palta-700 hover:shadow-sm transition-all"
               >
                 <div className="w-10 h-10 bg-palta-950 rounded-lg flex items-center justify-center mb-4">
@@ -39,7 +34,7 @@ export default function Features() {
                 <p className="text-sm text-neutral-400 leading-relaxed">
                   {t(`features.items.${key}.description`)}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

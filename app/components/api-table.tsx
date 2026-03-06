@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 
 type Row = {
   fn: string;
@@ -52,18 +51,12 @@ export default function ApiTable() {
   return (
     <section id="api" className="px-6 py-24">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             {t("api.title")}
           </h2>
           <p className="mt-4 text-neutral-400 text-lg">{t("api.subtitle")}</p>
-        </motion.div>
+        </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">

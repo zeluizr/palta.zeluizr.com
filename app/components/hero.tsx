@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 import { Copy, Check } from "lucide-react";
 
 export default function Hero() {
@@ -24,11 +23,7 @@ export default function Hero() {
         }}
       />
       <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="[animation:var(--animate-slide-up)]">
           <button
             onClick={handleCopy}
             className="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-sm font-mono text-neutral-300 px-4 py-2 rounded-full mb-8 transition-colors cursor-pointer"
@@ -71,7 +66,7 @@ export default function Hero() {
               {t("hero.ctaSecondary")}
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 import { cn } from "~/lib/utils";
 
 // Hardcoded display values (previously computed from palta lib)
@@ -233,20 +232,14 @@ export default function CodePreview() {
   return (
     <section className="px-6 py-24 bg-neutral-900">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             {t("codePreview.title")}
           </h2>
           <p className="mt-4 text-neutral-400 text-lg">
             {t("codePreview.subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         <div className="bg-neutral-950 rounded-2xl overflow-hidden shadow-2xl">
           <div className="flex border-b border-neutral-800 px-6">

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
 import { Copy, Check } from "lucide-react";
 import { cn } from "~/lib/utils";
 
@@ -31,18 +30,12 @@ export default function Install() {
   return (
     <section id="install" className="px-6 py-24 bg-neutral-950">
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             {t("install.title")}
           </h2>
           <p className="mt-4 text-neutral-400 text-lg">{t("install.subtitle")}</p>
-        </motion.div>
+        </div>
 
         <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden mb-12">
           <div className="flex border-b border-neutral-800 px-2 pt-2 gap-1 overflow-x-auto">
