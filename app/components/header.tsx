@@ -11,8 +11,6 @@ export default function Header() {
     { href: "#countries", label: t("header.countries") },
     { href: "#install", label: t("header.install") },
     { href: "#api", label: t("header.api") },
-    { href: "https://github.com/zeluizr/palta", label: "GitHub", external: true },
-    { href: "https://www.npmjs.com/package/@zeluizr/palta", label: "npm", external: true },
   ];
 
   return (

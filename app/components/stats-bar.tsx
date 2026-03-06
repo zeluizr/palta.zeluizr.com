@@ -22,20 +22,6 @@ export default function StatsBar() {
           </span>
         ))}
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-        <a href="https://www.npmjs.com/package/@zeluizr/palta" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.shields.io/npm/v/%40zeluizr%2Fpalta?style=flat-square&color=6ab344" alt="npm" className="h-5" />
-        </a>
-        <a href="https://github.com/zeluizr/palta" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.shields.io/github/stars/zeluizr/palta?style=flat-square&color=6ab344&logo=github" alt="stars" className="h-5" />
-        </a>
-        <a href="https://github.com/zeluizr/palta/fork" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.shields.io/github/forks/zeluizr/palta?style=flat-square&color=6ab344&logo=github" alt="forks" className="h-5" />
-        </a>
-        <a href="https://github.com/zeluizr/palta/issues" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.shields.io/github/issues/zeluizr/palta?style=flat-square&color=6ab344&logo=github" alt="issues" className="h-5" />
-        </a>
-      </div>
     </section>
   );
 }
