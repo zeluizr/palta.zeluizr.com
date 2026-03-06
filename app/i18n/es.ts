@@ -113,6 +113,11 @@ export default {
     },
   },
 
+  usedBy: {
+    label: "Usado en producción por",
+    sponsors: "Sponsors",
+  },
+
   stats: {
     zeroDeps: "Zero dependencies",
     treeShakeable: "Tree-shakeable",
@@ -128,5 +133,7 @@ export default {
     github: "GitHub",
     npm: "npm",
     license: "MIT",
+    byCommente: "Un producto de",
+    builtWith: "creado con",
   },
 };

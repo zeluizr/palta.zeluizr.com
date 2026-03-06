@@ -3,10 +3,12 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import pt from "./pt";
 import es from "./es";
+import en from "./en";
 
 const resources = {
   pt: { translation: pt },
   es: { translation: es },
+  en: { translation: en },
 };
 
 const baseConfig = {

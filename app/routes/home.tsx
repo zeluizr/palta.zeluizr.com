@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import Header from "~/components/header";
 import Hero from "~/components/hero";
 import StatsBar from "~/components/stats-bar";
+import UsedBy from "~/components/used-by";
 import Features from "~/components/features";
 import CodePreview from "~/components/code-preview";
 import Countries from "~/components/countries";
@@ -24,10 +25,14 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const title =
     lang === "pt"
       ? "palta — Formatação e validação de dados da América Latina"
+      : lang === "en"
+      ? "palta — Format & validate Latin American data"
       : "palta — Formateo y validación de datos de América Latina";
   const description =
     lang === "pt"
       ? "Biblioteca TypeScript para formatar e validar CPF, RUT, CUIT, NIT, RUC, moedas, telefones e CEPs. Zero dependencies, tree-shakeable."
+      : lang === "en"
+      ? "TypeScript library to format and validate CPF, RUT, CUIT, NIT, RUC, currencies, phones and zip codes. Zero dependencies, tree-shakeable."
       : "Biblioteca TypeScript para formatear y validar RUT, CUIT, CPF, NIT, RUC, monedas, teléfonos y códigos postales. Zero dependencies, tree-shakeable.";
 
   return [
@@ -61,6 +66,7 @@ export default function Home() {
       <main>
         <Hero />
         <StatsBar />
+        <UsedBy />
         <Features />
         <CodePreview />
         <Countries />

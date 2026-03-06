@@ -2,51 +2,51 @@ import { useTranslation } from "react-i18next";
 
 type Row = {
   fn: string;
-  desc: { es: string; pt: string };
+  desc: { es: string; pt: string; en: string };
   example: string;
 };
 
 const rows: Row[] = [
   {
     fn: ".format()",
-    desc: { es: "Formatea con puntuación", pt: "Formata com pontuação" },
+    desc: { es: "Formatea con puntuación", pt: "Formata com pontuação", en: "Format with punctuation" },
     example: "'12345678901' → '123.456.789-01'",
   },
   {
     fn: ".strip()",
-    desc: { es: "Remueve formato", pt: "Remove formatação" },
+    desc: { es: "Remueve formato", pt: "Remove formatação", en: "Remove formatting" },
     example: "'123.456.789-01' → '12345678901'",
   },
   {
     fn: ".validate()",
-    desc: { es: "Valida dígito verificador", pt: "Valida dígito verificador" },
+    desc: { es: "Valida dígito verificador", pt: "Valida dígito verificador", en: "Validate check digit" },
     example: "true | false",
   },
   {
     fn: ".mask",
-    desc: { es: "Máscara para inputs", pt: "Máscara para inputs" },
+    desc: { es: "Máscara para inputs", pt: "Máscara para inputs", en: "Input mask" },
     example: "'###.###.###-##'",
   },
   {
     fn: "currency()",
-    desc: { es: "Formatea número en moneda", pt: "Formata número em moeda" },
+    desc: { es: "Formatea número en moneda", pt: "Formata número em moeda", en: "Format number as currency" },
     example: "1234.56 → 'R$ 1.234,56'",
   },
   {
     fn: "currency.parse()",
-    desc: { es: "Moneda a número", pt: "Moeda para número" },
+    desc: { es: "Moneda a número", pt: "Moeda para número", en: "Currency to number" },
     example: "'R$ 1.234,56' → 1234.56",
   },
   {
     fn: "detect()",
-    desc: { es: "Detecta país y tipo", pt: "Detecta país e tipo" },
+    desc: { es: "Detecta país y tipo", pt: "Detecta país e tipo", en: "Detect country and type" },
     example: "{ country, type, valid }",
   },
 ];
 
 export default function ApiTable() {
   const { t, i18n } = useTranslation();
-  const lang = i18n.language.startsWith("pt") ? "pt" : "es";
+  const lang = i18n.language.startsWith("pt") ? "pt" : i18n.language.startsWith("en") ? "en" : "es";
 
   return (
     <section id="api" className="px-6 py-24">
