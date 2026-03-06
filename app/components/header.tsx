@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Link } from "react-router";
 import { Menu, X, ChevronsUpDown, Check } from "lucide-react";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 
@@ -33,6 +33,7 @@ export default function Header() {
     { href: "#api", label: t("header.api") },
     { href: "#roadmap", label: t("header.roadmap") },
     { href: "#changelog", label: t("header.changelog") },
+    { href: "/demo", label: t("header.demo"), external: false },
   ];
 
   const LangSelect = () => (
@@ -71,15 +72,25 @@ export default function Header() {
         </a>
 
         <nav className="hidden sm:flex items-center gap-6 text-sm text-neutral-400">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.external === false ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-palta-400 font-medium hover:text-palta-300 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="hidden sm:flex items-center gap-4">
@@ -103,16 +114,27 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="sm:hidden border-t border-neutral-800 bg-neutral-950 px-6 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.external === false ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-sm text-palta-400 font-medium hover:text-palta-300 transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <div className="flex items-center justify-between">
             <LangSelect />
             <a

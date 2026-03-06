@@ -10,6 +10,7 @@ export default {
     countries: "Países",
     install: "Instalar",
     api: "API",
+    demo: "Demo",
     roadmap: "Roadmap",
     changelog: "Changelog",
     cta: "Comenzar ahora",
