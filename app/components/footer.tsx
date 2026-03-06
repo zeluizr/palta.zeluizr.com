@@ -27,12 +27,16 @@ export default function Footer() {
           <div className="flex items-center gap-6 text-sm text-neutral-400">
             <a
               href="https://github.com/zeluizr/palta"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
               {t("footer.github")}
             </a>
             <a
-              href="https://www.npmjs.com/package/palta"
+              href="https://www.npmjs.com/package/@zeluizr/palta"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
               {t("footer.npm")}

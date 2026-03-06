@@ -39,6 +39,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
+    { property: "og:url", content: "https://palta.dev" },
+    { property: "og:image", content: "https://palta.dev/og-image.svg" },
+    { tagName: "link", rel: "canonical", href: "https://palta.dev" },
   ];
 };
 

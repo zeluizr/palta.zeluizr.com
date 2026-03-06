@@ -52,6 +52,16 @@ export default function Hero() {
             {t("hero.subtitle")}
           </p>
 
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <img src="https://img.shields.io/npm/v/%40zeluizr%2Fpalta?style=flat-square&color=6ab344&label=npm" alt="npm version" className="h-5" />
+            <img src="https://img.shields.io/npm/dm/%40zeluizr%2Fpalta?style=flat-square&color=6ab344&label=downloads" alt="npm downloads" className="h-5" />
+            <img src="https://img.shields.io/bundlephobia/minzip/%40zeluizr%2Fpalta?style=flat-square&color=6ab344&label=size" alt="bundle size" className="h-5" />
+            <img src="https://img.shields.io/github/stars/zeluizr/palta?style=flat-square&color=6ab344&logo=github&label=stars" alt="GitHub stars" className="h-5" />
+            <img src="https://img.shields.io/github/forks/zeluizr/palta?style=flat-square&color=6ab344&logo=github&label=forks" alt="GitHub forks" className="h-5" />
+            <img src="https://img.shields.io/github/license/zeluizr/palta?style=flat-square&color=6ab344&label=license" alt="License" className="h-5" />
+            <img src="https://img.shields.io/badge/TypeScript-strict-6ab344?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" className="h-5" />
+          </div>
+
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#install"

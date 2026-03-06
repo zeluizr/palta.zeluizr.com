@@ -11,6 +11,8 @@ export default function Header() {
     { href: "#countries", label: t("header.countries") },
     { href: "#install", label: t("header.install") },
     { href: "#api", label: t("header.api") },
+    { href: "https://github.com/zeluizr/palta", label: "GitHub", external: true },
+    { href: "https://www.npmjs.com/package/@zeluizr/palta", label: "npm", external: true },
   ];
 
   return (
@@ -26,6 +28,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="hover:text-white transition-colors"
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               {link.label}
             </a>
@@ -56,6 +59,7 @@ export default function Header() {
               href={link.href}
               className="text-sm text-neutral-400 hover:text-white transition-colors"
               onClick={() => setMobileOpen(false)}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               {link.label}
             </a>
