@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronUpDown, Check } from "lucide-react";
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+
+const langs = [
+  { code: "es", flag: "🇪🇸", label: "Español" },
+  { code: "en", flag: "🇺🇸", label: "English" },
+  { code: "pt", flag: "🇧🇷", label: "Português" },
+];
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -10,13 +17,13 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const currentLang =
-    i18n.language.startsWith("pt") ? "pt" : i18n.language.startsWith("en") ? "en" : "es";
+    langs.find((l) => i18n.language.startsWith(l.code)) ?? langs[0];
 
-  const switchLang = (lang: string) => {
+  const switchLang = (lang: typeof langs[0]) => {
     const params = new URLSearchParams(location.search);
-    params.set("lang", lang);
+    params.set("lang", lang.code);
     navigate(`${location.pathname}?${params.toString()}`, { replace: true });
-    i18n.changeLanguage(lang);
+    i18n.changeLanguage(lang.code);
   };
 
   const navLinks = [
@@ -27,15 +34,31 @@ export default function Header() {
   ];
 
   const LangSelect = () => (
-    <select
-      value={currentLang}
-      onChange={(e) => switchLang(e.target.value)}
-      className="bg-transparent text-neutral-400 hover:text-white text-sm border-none outline-none cursor-pointer transition-colors"
-    >
-      <option value="es" className="bg-neutral-900">ES</option>
-      <option value="en" className="bg-neutral-900">EN</option>
-      <option value="pt" className="bg-neutral-900">PT</option>
-    </select>
+    <Listbox value={currentLang} onChange={switchLang}>
+      <div className="relative">
+        <ListboxButton className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors cursor-pointer">
+          <span>{currentLang.flag}</span>
+          <span className="font-medium">{currentLang.code.toUpperCase()}</span>
+          <ChevronUpDown size={14} className="text-neutral-600" />
+        </ListboxButton>
+        <ListboxOptions className="absolute right-0 mt-2 w-40 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl outline-none overflow-hidden z-50">
+          {langs.map((lang) => (
+            <ListboxOption
+              key={lang.code}
+              value={lang}
+              className="group flex items-center gap-3 px-3 py-2.5 text-sm cursor-pointer text-neutral-400 data-[focus]:bg-neutral-800 data-[focus]:text-white"
+            >
+              <span className="text-base">{lang.flag}</span>
+              <span className="flex-1">{lang.label}</span>
+              <Check
+                size={14}
+                className="text-palta-400 opacity-0 group-data-[selected]:opacity-100"
+              />
+            </ListboxOption>
+          ))}
+        </ListboxOptions>
+      </div>
+    </Listbox>
   );
 
   return (
