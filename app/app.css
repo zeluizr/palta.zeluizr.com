@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta principal — verde abacate/palta */
+  --color-palta-50: #f4faf0;
+  --color-palta-100: #e6f5dc;
+  --color-palta-200: #ceebbc;
+  --color-palta-300: #aedd8f;
+  --color-palta-400: #8bcb62;
+  --color-palta-500: #6ab344;
+  --color-palta-600: #518f32;
+  --color-palta-700: #3f6e29;
+  --color-palta-800: #355825;
+  --color-palta-900: #2d4b22;
+  --color-palta-950: #15290e;
+
+  /* Neutros */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Cores por país */
+  --color-brasil: #009c3b;
+  --color-chile: #d52b1e;
+  --color-argentina: #75aadb;
+  --color-colombia: #fcd116;
+  --color-peru: #d91023;
+
+  /* Fontes */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Animações */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.code-block::-webkit-scrollbar {
+  height: 6px;
+}
+.code-block::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+.code-block::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 3px;
+}
