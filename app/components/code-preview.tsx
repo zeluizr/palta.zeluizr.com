@@ -33,7 +33,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {" "}
       <span className="text-purple-400">from</span>
       {" "}
-      <span className="text-green-400">'palta'</span>
+      <span className="text-green-400">'@zeluizr/palta'</span>
       {"\n\n"}
       <span className="text-neutral-500">{"// Brasil"}</span>
       {"\n"}
@@ -106,7 +106,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {" "}
       <span className="text-purple-400">from</span>
       {" "}
-      <span className="text-green-400">'palta'</span>
+      <span className="text-green-400">'@zeluizr/palta'</span>
       {"\n\n"}
       <span className="text-neutral-100">br.</span>
       <span className="text-yellow-400">currency</span>
@@ -157,7 +157,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {" "}
       <span className="text-purple-400">from</span>
       {" "}
-      <span className="text-green-400">'palta'</span>
+      <span className="text-green-400">'@zeluizr/palta'</span>
       {"\n\n"}
       <span className="text-neutral-100">br.phone.</span>
       <span className="text-yellow-400">format</span>
@@ -192,7 +192,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {" "}
       <span className="text-purple-400">from</span>
       {" "}
-      <span className="text-green-400">'palta'</span>
+      <span className="text-green-400">'@zeluizr/palta'</span>
       {"\n\n"}
       <span className="text-yellow-400">detect</span>
       <span className="text-neutral-100">{"("}</span>

@@ -7,7 +7,7 @@ export default function Hero() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npm install palta");
+    navigator.clipboard.writeText("npm install @zeluizr/palta");
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -28,7 +28,7 @@ export default function Hero() {
             onClick={handleCopy}
             className="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-sm font-mono text-neutral-300 px-4 py-2 rounded-full mb-8 transition-colors cursor-pointer"
           >
-            <span>$ npm install palta</span>
+            <span>$ npm install @zeluizr/palta</span>
             {copied ? (
               <Check size={16} className="text-palta-400" />
             ) : (

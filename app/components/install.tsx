@@ -6,12 +6,12 @@ import { cn } from "~/lib/utils";
 type PkgManager = "npm" | "yarn" | "pnpm" | "bun" | "deno" | "npx";
 
 const pkgCommands: Record<PkgManager, string> = {
-  npm: "npm install palta",
-  yarn: "yarn add palta",
-  pnpm: "pnpm add palta",
-  bun: "bun add palta",
-  deno: "deno add npm:palta",
-  npx: "npx jsr add palta",
+  npm: "npm install @zeluizr/palta",
+  yarn: "yarn add @zeluizr/palta",
+  pnpm: "pnpm add @zeluizr/palta",
+  bun: "bun add @zeluizr/palta",
+  deno: "deno add npm:@zeluizr/palta",
+  npx: "npx jsr add @zeluizr/palta",
 };
 
 const pkgManagers: PkgManager[] = ["npm", "yarn", "pnpm", "bun", "deno", "npx"];
@@ -84,7 +84,7 @@ export default function Install() {
             {" "}
             <span className="text-purple-400">from</span>
             {" "}
-            <span className="text-green-400">'palta'</span>
+            <span className="text-green-400">'@zeluizr/palta'</span>
             {"        "}
             <span className="text-neutral-500">{"// ~1.2kb"}</span>
             {"\n"}
@@ -94,7 +94,7 @@ export default function Install() {
             {" "}
             <span className="text-purple-400">from</span>
             {" "}
-            <span className="text-green-400">'palta'</span>
+            <span className="text-green-400">'@zeluizr/palta'</span>
             {"        "}
             <span className="text-neutral-500">{"// ~0.8kb"}</span>
             {"\n"}
@@ -104,7 +104,7 @@ export default function Install() {
             {" "}
             <span className="text-purple-400">from</span>
             {" "}
-            <span className="text-green-400">'palta/br'</span>
+            <span className="text-green-400">'@zeluizr/palta/br'</span>
             {"        "}
             <span className="text-neutral-500">{"// alternativa"}</span>
           </pre>

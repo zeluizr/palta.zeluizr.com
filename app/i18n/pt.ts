@@ -15,7 +15,7 @@ export default {
   },
 
   hero: {
-    tagline: "npm install palta",
+    tagline: "npm install @zeluizr/palta",
     titleLine1: "Formate e valide dados",
     titleLine2: "de toda a",
     titleHighlight: "América Latina",
