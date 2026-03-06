@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router";
-import { Menu, X, ChevronUpDown, Check } from "lucide-react";
+import { Menu, X, ChevronsUpDown, Check } from "lucide-react";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 
 const langs = [
@@ -39,7 +39,7 @@ export default function Header() {
         <ListboxButton className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors cursor-pointer">
           <span>{currentLang.flag}</span>
           <span className="font-medium">{currentLang.code.toUpperCase()}</span>
-          <ChevronUpDown size={14} className="text-neutral-600" />
+          <ChevronsUpDown size={14} className="text-neutral-600" />
         </ListboxButton>
         <ListboxOptions className="absolute right-0 mt-2 w-40 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl outline-none overflow-hidden z-50">
           {langs.map((lang) => (
