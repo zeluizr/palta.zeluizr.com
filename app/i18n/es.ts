@@ -133,7 +133,10 @@ export default {
     github: "GitHub",
     npm: "npm",
     license: "MIT",
-    byCommente: "Un producto de",
-    builtWith: "creado con",
+    loveAndCoffee1: "Hecho con mucho",
+    loveAnd: "amor y",
+    coffee: "café por",
+    devBy: "Desarrollado por",
+    builtWith: "con",
   },
 };
