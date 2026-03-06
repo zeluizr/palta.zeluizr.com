@@ -5,7 +5,7 @@ export default function UsedBy() {
 
   return (
     <section className="px-6 py-5 border-b border-neutral-800/60">
-      <div className="max-w-5xl mx-auto flex items-center justify-center gap-3 flex-wrap text-sm text-neutral-500">
+      <div className="max-w-5xl mx-auto w-full flex items-center justify-center gap-3 flex-wrap text-sm text-neutral-500">
         <span className="text-xs uppercase tracking-widest text-neutral-700 font-medium">
           {t("usedBy.label")}
         </span>
