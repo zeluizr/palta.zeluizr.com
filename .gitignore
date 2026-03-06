@@ -5,3 +5,11 @@ build/
 !.env.example
 .DS_Store
 *.local
+.claude/
+
+# Prompts Claude CLI
+PALTA-LANDING-CLAUDE.md
+PALTA-INTEGRATE-PROMPT.md
+PALTA-TEAMMATE-PROMPT.md
+PALTA-REVIEW-PROMPT.md
+palta-preview.html

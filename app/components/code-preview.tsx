@@ -2,6 +2,33 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { cn } from "~/lib/utils";
+import { br, cl, ar, co, pe, detect } from "palta";
+
+// Documentos — valores reais da lib
+const cpfFormatted = br.cpf.format("12345678909");
+const cpfValid = br.cpf.validate("12345678909");
+const cnpjFormatted = br.cnpj.format("11222333000181");
+const rutFormatted = cl.rut.format("12345678-5");
+const rutValid = cl.rut.validate("12345678-5");
+const cuitFormatted = ar.cuit.format("20123456786");
+const cuitValid = ar.cuit.validate("20123456786");
+
+// Moedas
+const brlFormatted = br.currency.format(1234.56);
+const clpFormatted = cl.currency.format(15990);
+const arsFormatted = ar.currency.format(4500.5);
+const copFormatted = co.currency.format(89900);
+const penFormatted = pe.currency.format(1234.56);
+
+// Telefones
+const brPhone = br.phone.format("11999887766");
+const clPhone = cl.phone.format("912345678");
+const arPhone = ar.phone.format("91155667788");
+
+// Detect — inputs com resultados válidos
+const detectCpf = detect("111.444.777-35");
+const detectRut = detect("76.354.771-K");
+const detectCuit = detect("20-20123456-6");
 
 type Tab = "docs" | "currency" | "phone" | "detect";
 
@@ -21,18 +48,18 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">br.cpf.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678901'</span>
+      <span className="text-green-400">'12345678909'</span>
       <span className="text-neutral-100">{")"}</span>
       {"     "}
-      <span className="text-neutral-500">{"// '123.456.789-01'"}</span>
+      <span className="text-neutral-500">{`// '${cpfFormatted}'`}</span>
       {"\n"}
       <span className="text-neutral-100">br.cpf.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678901'</span>
+      <span className="text-green-400">'12345678909'</span>
       <span className="text-neutral-100">{")"}</span>
       {"   "}
-      <span className="text-orange-400">{"// true"}</span>
+      <span className="text-orange-400">{`// ${cpfValid}`}</span>
       {"\n"}
       <span className="text-neutral-100">br.cnpj.</span>
       <span className="text-yellow-400">format</span>
@@ -40,43 +67,43 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-green-400">'11222333000181'</span>
       <span className="text-neutral-100">{")"}</span>
       {" "}
-      <span className="text-neutral-500">{"// '11.222.333/0001-81'"}</span>
+      <span className="text-neutral-500">{`// '${cnpjFormatted}'`}</span>
       {"\n\n"}
       <span className="text-neutral-500">{"// Chile"}</span>
       {"\n"}
       <span className="text-neutral-100">cl.rut.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678-9'</span>
+      <span className="text-green-400">'12345678-5'</span>
       <span className="text-neutral-100">{")"}</span>
       {"      "}
-      <span className="text-neutral-500">{"// '12.345.678-9'"}</span>
+      <span className="text-neutral-500">{`// '${rutFormatted}'`}</span>
       {"\n"}
       <span className="text-neutral-100">cl.rut.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678-9'</span>
+      <span className="text-green-400">'12345678-5'</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
-      <span className="text-orange-400">{"// true"}</span>
+      <span className="text-orange-400">{`// ${rutValid}`}</span>
       {"\n\n"}
       <span className="text-neutral-500">{"// Argentina"}</span>
       {"\n"}
       <span className="text-neutral-100">ar.cuit.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'20123456789'</span>
+      <span className="text-green-400">'20123456786'</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
-      <span className="text-neutral-500">{"// '20-12345678-9'"}</span>
+      <span className="text-neutral-500">{`// '${cuitFormatted}'`}</span>
       {"\n"}
       <span className="text-neutral-100">ar.cuit.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'20123456789'</span>
+      <span className="text-green-400">'20123456786'</span>
       <span className="text-neutral-100">{")"}</span>
       {"  "}
-      <span className="text-orange-400">{"// true"}</span>
+      <span className="text-orange-400">{`// ${cuitValid}`}</span>
     </>
   ),
   currency: (
@@ -89,45 +116,45 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {" "}
       <span className="text-green-400">'palta'</span>
       {"\n\n"}
-      <span className="text-neutral-100">br.</span>
-      <span className="text-yellow-400">currency</span>
+      <span className="text-neutral-100">br.currency.</span>
+      <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
       <span className="text-orange-400">1234.56</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
-      <span className="text-neutral-500">{"// 'R$ 1.234,56'"}</span>
+      <span className="text-neutral-500">{`// '${brlFormatted}'`}</span>
       {"\n"}
-      <span className="text-neutral-100">cl.</span>
-      <span className="text-yellow-400">currency</span>
+      <span className="text-neutral-100">cl.currency.</span>
+      <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
       <span className="text-orange-400">15990</span>
       <span className="text-neutral-100">{")"}</span>
       {"      "}
-      <span className="text-neutral-500">{"// '$15.990'"}</span>
+      <span className="text-neutral-500">{`// '${clpFormatted}'`}</span>
       {"\n"}
-      <span className="text-neutral-100">ar.</span>
-      <span className="text-yellow-400">currency</span>
+      <span className="text-neutral-100">ar.currency.</span>
+      <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
       <span className="text-orange-400">4500.50</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
-      <span className="text-neutral-500">{"// '$ 4.500,50'"}</span>
+      <span className="text-neutral-500">{`// '${arsFormatted}'`}</span>
       {"\n"}
-      <span className="text-neutral-100">co.</span>
-      <span className="text-yellow-400">currency</span>
+      <span className="text-neutral-100">co.currency.</span>
+      <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
       <span className="text-orange-400">89900</span>
       <span className="text-neutral-100">{")"}</span>
       {"      "}
-      <span className="text-neutral-500">{"// '$ 89.900'"}</span>
+      <span className="text-neutral-500">{`// '${copFormatted}'`}</span>
       {"\n"}
-      <span className="text-neutral-100">pe.</span>
-      <span className="text-yellow-400">currency</span>
+      <span className="text-neutral-100">pe.currency.</span>
+      <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
       <span className="text-orange-400">1234.56</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
-      <span className="text-neutral-500">{"// 'S/ 1,234.56'"}</span>
+      <span className="text-neutral-500">{`// '${penFormatted}'`}</span>
     </>
   ),
   phone: (
@@ -146,7 +173,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-green-400">'11999887766'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// '(11) 99988-7766'"}</span>
+      <span className="text-neutral-500">{`// '${brPhone}'`}</span>
       {"\n\n"}
       <span className="text-neutral-100">cl.phone.</span>
       <span className="text-yellow-400">format</span>
@@ -154,15 +181,15 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-green-400">'912345678'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// '+56 9 1234 5678'"}</span>
+      <span className="text-neutral-500">{`// '${clPhone}'`}</span>
       {"\n\n"}
       <span className="text-neutral-100">ar.phone.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'1155667788'</span>
+      <span className="text-green-400">'91155667788'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// '+54 9 11 5566-7788'"}</span>
+      <span className="text-neutral-500">{`// '${arPhone}'`}</span>
     </>
   ),
   detect: (
@@ -177,24 +204,24 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       {"\n\n"}
       <span className="text-yellow-400">detect</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12.345.678-9'</span>
+      <span className="text-green-400">'111.444.777-35'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// { country: 'CL', type: 'rut', valid: true }"}</span>
+      <span className="text-neutral-500">{`// { country: '${detectCpf?.country}', type: '${detectCpf?.type}', valid: ${detectCpf?.valid} }`}</span>
       {"\n\n"}
       <span className="text-yellow-400">detect</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'123.456.789-01'</span>
+      <span className="text-green-400">'76.354.771-K'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// { country: 'BR', type: 'cpf', valid: true }"}</span>
+      <span className="text-neutral-500">{`// { country: '${detectRut?.country}', type: '${detectRut?.type}', valid: ${detectRut?.valid} }`}</span>
       {"\n\n"}
       <span className="text-yellow-400">detect</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'20-12345678-9'</span>
+      <span className="text-green-400">'20-20123456-6'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
-      <span className="text-neutral-500">{"// { country: 'AR', type: 'cuit', valid: true }"}</span>
+      <span className="text-neutral-500">{`// { country: '${detectCuit?.country}', type: '${detectCuit?.type}', valid: ${detectCuit?.valid} }`}</span>
     </>
   ),
 };
