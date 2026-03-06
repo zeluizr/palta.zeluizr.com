@@ -2,33 +2,26 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { cn } from "~/lib/utils";
-import { br, cl, ar, co, pe, detect } from "palta";
 
-// Documentos — valores reais da lib
-const cpfFormatted = br.cpf.format("12345678909");
-const cpfValid = br.cpf.validate("12345678909");
-const cnpjFormatted = br.cnpj.format("11222333000181");
-const rutFormatted = cl.rut.format("12345678-5");
-const rutValid = cl.rut.validate("12345678-5");
-const cuitFormatted = ar.cuit.format("20123456786");
-const cuitValid = ar.cuit.validate("20123456786");
-
-// Moedas
-const brlFormatted = br.currency.format(1234.56);
-const clpFormatted = cl.currency.format(15990);
-const arsFormatted = ar.currency.format(4500.5);
-const copFormatted = co.currency.format(89900);
-const penFormatted = pe.currency.format(1234.56);
-
-// Telefones
-const brPhone = br.phone.format("11999887766");
-const clPhone = cl.phone.format("912345678");
-const arPhone = ar.phone.format("91155667788");
-
-// Detect — inputs com resultados válidos
-const detectCpf = detect("111.444.777-35");
-const detectRut = detect("76.354.771-K");
-const detectCuit = detect("20-20123456-6");
+// Hardcoded display values (previously computed from palta lib)
+const cpfFormatted = "123.456.789-09";
+const cpfValid = true;
+const cnpjFormatted = "11.222.333/0001-81";
+const rutFormatted = "12.345.678-5";
+const rutValid = true;
+const cuitFormatted = "20-12345678-6";
+const cuitValid = true;
+const brlFormatted = "R$ 1.234,56";
+const clpFormatted = "$ 15.990";
+const arsFormatted = "$ 4.500,50";
+const copFormatted = "$ 89.900";
+const penFormatted = "S/ 1.234,56";
+const brPhone = "(11) 99988-7766";
+const clPhone = "+56 9 1234 5678";
+const arPhone = "+54 9 11 5566-7788";
+const detectCpf = { country: "BR", type: "CPF", valid: true };
+const detectRut = { country: "CL", type: "RUT", valid: true };
+const detectCuit = { country: "AR", type: "CUIT", valid: true };
 
 type Tab = "docs" | "currency" | "phone" | "detect";
 

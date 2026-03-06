@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
-import { br } from "palta";
 
 type Row = {
   fn: string;
@@ -12,32 +11,32 @@ const rows: Row[] = [
   {
     fn: ".format()",
     desc: { es: "Formatea con puntuación", pt: "Formata com pontuação" },
-    example: `'12345678909' → '${br.cpf.format('12345678909')}'`,
+    example: "'12345678909' → '123.456.789-09'",
   },
   {
     fn: ".strip()",
     desc: { es: "Remueve formato", pt: "Remove formatação" },
-    example: `'123.456.789-09' → '${br.cpf.strip('123.456.789-09')}'`,
+    example: "'123.456.789-09' → '12345678909'",
   },
   {
     fn: ".validate()",
     desc: { es: "Valida dígito verificador", pt: "Valida dígito verificador" },
-    example: String(br.cpf.validate('12345678909')),
+    example: "true",
   },
   {
     fn: ".mask",
     desc: { es: "Máscara para inputs", pt: "Máscara para inputs" },
-    example: `'${br.cpf.mask}'`,
+    example: "'###.###.###-##'",
   },
   {
     fn: "currency.format()",
     desc: { es: "Formatea número en moneda", pt: "Formata número em moeda" },
-    example: `1234.56 → '${br.currency.format(1234.56)}'`,
+    example: "1234.56 → 'R$ 1.234,56'",
   },
   {
     fn: "currency.parse()",
     desc: { es: "Moneda a número", pt: "Moeda para número" },
-    example: `'R$ 1.234,56' → ${br.currency.parse('R$ 1.234,56')}`,
+    example: "'R$ 1.234,56' → 1234.56",
   },
   {
     fn: "detect()",
