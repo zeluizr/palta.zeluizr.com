@@ -21,7 +21,7 @@ const rows: Row[] = [
   {
     fn: ".validate()",
     desc: { es: "Valida dígito verificador", pt: "Valida dígito verificador" },
-    example: "true",
+    example: "true | false",
   },
   {
     fn: ".mask",
@@ -29,7 +29,7 @@ const rows: Row[] = [
     example: "'###.###.###-##'",
   },
   {
-    fn: "currency.format()",
+    fn: "currency()",
     desc: { es: "Formatea número en moneda", pt: "Formata número em moeda" },
     example: "1234.56 → 'R$ 1.234,56'",
   },
