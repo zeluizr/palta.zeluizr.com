@@ -15,7 +15,8 @@ export default {
 
   hero: {
     tagline: "npm install palta",
-    title: "Formatea y valida datos de toda",
+    titleLine1: "Formatea y valida datos",
+    titleLine2: "de toda",
     titleHighlight: "América Latina",
     subtitle:
       "RUT, CUIT, CPF, NIT, RUC, monedas, teléfonos y códigos postales — todo en una biblioteca TypeScript. Zero dependencies. Tree-shakeable.",
