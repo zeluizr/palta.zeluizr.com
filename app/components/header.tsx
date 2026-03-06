@@ -84,7 +84,7 @@ export default function Header() {
           <LangSelect />
           <a
             href="#install"
-            className="bg-white text-neutral-900 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-neutral-200 transition-colors"
+            className="bg-white text-neutral-900 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-neutral-200 transition-colors min-w-[140px] text-center"
           >
             {t("header.cta")}
           </a>
