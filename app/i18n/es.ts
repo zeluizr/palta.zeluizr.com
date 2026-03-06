@@ -11,6 +11,7 @@ export default {
     install: "Instalar",
     api: "API",
     roadmap: "Roadmap",
+    changelog: "Changelog",
     cta: "Comenzar ahora",
   },
 
@@ -112,6 +113,49 @@ export default {
       description: "Descripción",
       example: "Ejemplo",
     },
+  },
+
+  changelog: {
+    title: "Historial de cambios",
+    subtitle: "Seguí la evolución de la biblioteca versión a versión.",
+    badge: {
+      new: "Nuevo",
+      improved: "Mejora",
+      fixed: "Corrección",
+    },
+    releases: [
+      {
+        version: "v1.2.0",
+        date: "Marzo 2026",
+        tag: "latest",
+        changes: [
+          { type: "new", text: "Soporte Perú: validación de RUC, DNI, formateo de PEN y teléfonos peruanos." },
+          { type: "new", text: "Nueva función detect() — detecta automáticamente el país y el tipo de dato a partir del valor ingresado." },
+          { type: "improved", text: "Mejor inferencia de tipos en TypeScript: retornos más precisos según el país y el método utilizado." },
+        ],
+      },
+      {
+        version: "v1.1.0",
+        date: "Febrero 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Soporte Colombia: validación de NIT y Cédula de Ciudadanía, formateo de COP y teléfonos colombianos." },
+          { type: "new", text: "Imports tree-shakeable por país: importá solo lo que necesitás y reducí el bundle al mínimo." },
+          { type: "improved", text: "Validación del dígito verificador mejorada para mayor precisión en RUT, CUIT/CUIL y NIT." },
+        ],
+      },
+      {
+        version: "v1.0.0",
+        date: "Enero 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Soporte Brasil: validación de CPF y CNPJ, formateo de BRL, teléfonos y CEP." },
+          { type: "new", text: "Soporte Chile: validación de RUT, formateo de CLP, teléfonos y código postal." },
+          { type: "new", text: "Soporte Argentina: validación de CUIT/CUIL y DNI, formateo de ARS, teléfonos y CPA." },
+          { type: "new", text: "Sin dependencias externas y menos de 5 kb comprimido en gzip." },
+        ],
+      },
+    ],
   },
 
   roadmap: {

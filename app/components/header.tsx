@@ -32,6 +32,7 @@ export default function Header() {
     { href: "#install", label: t("header.install") },
     { href: "#api", label: t("header.api") },
     { href: "#roadmap", label: t("header.roadmap") },
+    { href: "#changelog", label: t("header.changelog") },
   ];
 
   const LangSelect = () => (

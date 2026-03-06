@@ -11,6 +11,7 @@ export default {
     install: "Install",
     api: "API",
     roadmap: "Roadmap",
+    changelog: "Changelog",
     cta: "Get started",
   },
 
@@ -112,6 +113,49 @@ export default {
       description: "Description",
       example: "Example",
     },
+  },
+
+  changelog: {
+    title: "Changelog",
+    subtitle: "Every release, every improvement — tracked and documented.",
+    badge: {
+      new: "New",
+      improved: "Improved",
+      fixed: "Fixed",
+    },
+    releases: [
+      {
+        version: "v1.2.0",
+        date: "March 2026",
+        tag: "latest",
+        changes: [
+          { type: "new", text: "Peru support: RUC and DNI validation, PEN currency formatting, and phone number parsing." },
+          { type: "new", text: "Introduced detect() — automatically identifies country and document type from a raw input string." },
+          { type: "improved", text: "Stronger TypeScript type inference across all validator and formatter return types." },
+        ],
+      },
+      {
+        version: "v1.1.0",
+        date: "February 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Colombia support: NIT and Cédula de Ciudadanía validation, COP currency formatting, and phone number parsing." },
+          { type: "new", text: "Tree-shakeable per-country imports — bundle only the countries your project actually uses." },
+          { type: "improved", text: "Overhauled check digit validation logic for higher accuracy across all supported document types." },
+        ],
+      },
+      {
+        version: "v1.0.0",
+        date: "January 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Brazil support: CPF and CNPJ validation, BRL currency formatting, phone number parsing, and ZIP code (CEP) validation." },
+          { type: "new", text: "Chile support: RUT validation, CLP currency formatting, phone number parsing, and postal code validation." },
+          { type: "new", text: "Argentina support: CUIT and CUIL validation, DNI parsing, ARS currency formatting, phone number parsing, and CPA postal code validation." },
+          { type: "new", text: "Zero external dependencies and under 5kb gzipped — designed to be lightweight from day one." },
+        ],
+      },
+    ],
   },
 
   roadmap: {

@@ -11,6 +11,7 @@ export default {
     install: "Instalar",
     api: "API",
     roadmap: "Roadmap",
+    changelog: "Changelog",
     cta: "Começar agora",
   },
 
@@ -112,6 +113,49 @@ export default {
       description: "Descrição",
       example: "Exemplo",
     },
+  },
+
+  changelog: {
+    title: "Histórico de versões",
+    subtitle: "Acompanhe as novidades, melhorias e correções da biblioteca.",
+    badge: {
+      new: "Novo",
+      improved: "Melhoria",
+      fixed: "Correção",
+    },
+    releases: [
+      {
+        version: "v1.2.0",
+        date: "Março 2026",
+        tag: "latest",
+        changes: [
+          { type: "new", text: "Suporte ao Peru: validação de RUC e DNI, formatação de PEN e telefones peruanos" },
+          { type: "new", text: "Nova função detect() — identifica automaticamente o país e o tipo do dado informado" },
+          { type: "improved", text: "Inferência de tipos TypeScript aprimorada para retornos genéricos e sobrecarga de funções" },
+        ],
+      },
+      {
+        version: "v1.1.0",
+        date: "Fevereiro 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Suporte à Colômbia: validação de NIT e Cédula de Ciudadanía (CC), formatação de COP e telefones colombianos" },
+          { type: "new", text: "Imports tree-shakeable por país — importe apenas os módulos que seu projeto utiliza" },
+          { type: "improved", text: "Algoritmo de validação do dígito verificador revisado para maior precisão em casos extremos" },
+        ],
+      },
+      {
+        version: "v1.0.0",
+        date: "Janeiro 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Suporte ao Brasil: CPF, CNPJ, formatação de BRL, telefones e CEPs" },
+          { type: "new", text: "Suporte ao Chile: RUT, formatação de CLP, telefones e códigos postais chilenos" },
+          { type: "new", text: "Suporte à Argentina: CUIT, CUIL, DNI, formatação de ARS, telefones e CPA" },
+          { type: "new", text: "Zero dependências externas, bundle inferior a 5 kb gzipado" },
+        ],
+      },
+    ],
   },
 
   roadmap: {
