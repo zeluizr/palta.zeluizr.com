@@ -251,18 +251,12 @@ export default function Demo() {
       <header className="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="text-xl">🥑</span>
-            <span className="text-[15px] font-semibold">palta</span>
+            <Link to="/" className="flex items-center shrink-0 text-xl leading-none">
+              🥑
+            </Link>
             <span className="text-neutral-600">/</span>
             <span className="text-[15px] text-neutral-400">demo</span>
           </div>
-          <Link
-            to="/"
-            className="text-sm text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5"
-          >
-            <span>←</span>
-            <span>Volver</span>
-          </Link>
         </div>
       </header>
 
