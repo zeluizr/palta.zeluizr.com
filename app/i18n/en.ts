@@ -10,6 +10,7 @@ export default {
     countries: "Countries",
     install: "Install",
     api: "API",
+    roadmap: "Roadmap",
     cta: "Get started",
   },
 
@@ -110,6 +111,43 @@ export default {
       function: "Function",
       description: "Description",
       example: "Example",
+    },
+  },
+
+  roadmap: {
+    title: "What's coming next",
+    subtitle: "palta is growing — and the community shapes what gets built. Vote on issues, open a PR, or suggest a new country.",
+    cta: "Contribute on GitHub",
+    contribute: "Want to help?",
+    phases: {
+      next: {
+        label: "Up next",
+        description: "Countries already scoped and actively being implemented.",
+      },
+      planned: {
+        label: "Planned",
+        description: "On the roadmap — contributions welcome to speed things up.",
+      },
+      community: {
+        label: "Community",
+        description: "Requested by the community. Open a PR to claim one.",
+      },
+    },
+    countries: {
+      mexico: { name: "Mexico", docs: "CURP · RFC · MXN · Phone · ZIP" },
+      uruguay: { name: "Uruguay", docs: "Cédula · RUT · UYU · Phone · ZIP" },
+      ecuador: { name: "Ecuador", docs: "Cédula · RUC · USD · Phone · ZIP" },
+      venezuela: { name: "Venezuela", docs: "Cédula V/E · RIF · VES · Phone" },
+      bolivia: { name: "Bolivia", docs: "CI · NIT · BOB · Phone · ZIP" },
+      paraguay: { name: "Paraguay", docs: "CI · RUC · PYG · Phone · ZIP" },
+      dominicana: { name: "Dominican Rep.", docs: "Cédula · RNC · DOP · Phone" },
+      costarica: { name: "Costa Rica", docs: "Cédula · DIMEX · CRC · Phone" },
+      guatemala: { name: "Guatemala", docs: "DPI · NIT · GTQ · Phone" },
+      honduras: { name: "Honduras", docs: "Identidad · RTN · HNL · Phone" },
+      elsalvador: { name: "El Salvador", docs: "DUI · NIT · USD · Phone" },
+      nicaragua: { name: "Nicaragua", docs: "Cédula · RUC · NIO · Phone" },
+      panama: { name: "Panama", docs: "Cédula · RUC · PAB · Phone" },
+      cuba: { name: "Cuba", docs: "Carnet CI · CUP · Phone" },
     },
   },
 

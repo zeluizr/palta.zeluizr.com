@@ -10,6 +10,7 @@ export default {
     countries: "Países",
     install: "Instalar",
     api: "API",
+    roadmap: "Roadmap",
     cta: "Comenzar ahora",
   },
 
@@ -110,6 +111,43 @@ export default {
       function: "Función",
       description: "Descripción",
       example: "Ejemplo",
+    },
+  },
+
+  roadmap: {
+    title: "Hoja de ruta",
+    subtitle: "palta crece con la comunidad. ¿Tenés un país o documento que falta? Abrí un issue o mandá un PR.",
+    cta: "Contribuir en GitHub",
+    contribute: "¿Querés ayudar?",
+    phases: {
+      next: {
+        label: "Próximo",
+        description: "Países y validadores en desarrollo activo, listos para salir en la próxima versión.",
+      },
+      planned: {
+        label: "Planificado",
+        description: "Funcionalidades confirmadas en el backlog, pendientes de implementación.",
+      },
+      community: {
+        label: "Comunidad",
+        description: "Propuestas abiertas que necesitan mantenedores voluntarios para avanzar.",
+      },
+    },
+    countries: {
+      mexico: { name: "México", docs: "CURP · RFC · MXN · Teléfono · CP" },
+      uruguay: { name: "Uruguay", docs: "Cédula · RUT · UYU · Teléfono · CP" },
+      ecuador: { name: "Ecuador", docs: "Cédula · RUC · USD · Teléfono · CP" },
+      venezuela: { name: "Venezuela", docs: "Cédula V/E · RIF · VES · Teléfono" },
+      bolivia: { name: "Bolivia", docs: "CI · NIT · BOB · Teléfono · CP" },
+      paraguay: { name: "Paraguay", docs: "CI · RUC · PYG · Teléfono · CP" },
+      dominicana: { name: "Rep. Dominicana", docs: "Cédula · RNC · DOP · Teléfono" },
+      costarica: { name: "Costa Rica", docs: "Cédula · DIMEX · CRC · Teléfono" },
+      guatemala: { name: "Guatemala", docs: "DPI · NIT · GTQ · Teléfono" },
+      honduras: { name: "Honduras", docs: "Identidad · RTN · HNL · Teléfono" },
+      elsalvador: { name: "El Salvador", docs: "DUI · NIT · USD · Teléfono" },
+      nicaragua: { name: "Nicaragua", docs: "Cédula · RUC · NIO · Teléfono" },
+      panama: { name: "Panamá", docs: "Cédula · RUC · PAB · Teléfono" },
+      cuba: { name: "Cuba", docs: "Carnet CI · CUP · Teléfono" },
     },
   },
 

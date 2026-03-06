@@ -12,6 +12,7 @@ import CodePreview from "~/components/code-preview";
 import Countries from "~/components/countries";
 import Install from "~/components/install";
 import ApiTable from "~/components/api-table";
+import Roadmap from "~/components/roadmap";
 import Footer from "~/components/footer";
 
 export async function loader({ request }: LoaderFunctionArgs) {
@@ -72,6 +73,7 @@ export default function Home() {
         <Countries />
         <Install />
         <ApiTable />
+        <Roadmap />
       </main>
       <Footer />
     </>
