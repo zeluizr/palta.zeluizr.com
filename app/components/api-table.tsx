@@ -11,12 +11,12 @@ const rows: Row[] = [
   {
     fn: ".format()",
     desc: { es: "Formatea con puntuación", pt: "Formata com pontuação" },
-    example: "'12345678909' → '123.456.789-09'",
+    example: "'12345678901' → '123.456.789-01'",
   },
   {
     fn: ".strip()",
     desc: { es: "Remueve formato", pt: "Remove formatação" },
-    example: "'123.456.789-09' → '12345678909'",
+    example: "'123.456.789-01' → '12345678901'",
   },
   {
     fn: ".validate()",
@@ -83,7 +83,7 @@ export default function ApiTable() {
             <tbody className="divide-y divide-neutral-800">
               {rows.map((row) => (
                 <tr key={row.fn}>
-                  <td className="px-4 py-3 font-mono text-xs text-palta-400">
+                  <td className="px-4 py-3 font-mono text-xs text-palta-700">
                     {row.fn}
                   </td>
                   <td className="px-4 py-3 text-neutral-400">
