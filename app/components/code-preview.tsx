@@ -4,12 +4,12 @@ import { motion } from "motion/react";
 import { cn } from "~/lib/utils";
 
 // Hardcoded display values (previously computed from palta lib)
-const cpfFormatted = "123.456.789-09";
+const cpfFormatted = "123.456.789-01";
 const cpfValid = true;
 const cnpjFormatted = "11.222.333/0001-81";
-const rutFormatted = "12.345.678-5";
+const rutFormatted = "12.345.678-9";
 const rutValid = true;
-const cuitFormatted = "20-12345678-6";
+const cuitFormatted = "20-12345678-9";
 const cuitValid = true;
 const brlFormatted = "R$ 1.234,56";
 const clpFormatted = "$15.990";
@@ -41,7 +41,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">br.cpf.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678909'</span>
+      <span className="text-green-400">'12345678901'</span>
       <span className="text-neutral-100">{")"}</span>
       {"     "}
       <span className="text-neutral-500">{`// '${cpfFormatted}'`}</span>
@@ -49,7 +49,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">br.cpf.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678909'</span>
+      <span className="text-green-400">'12345678901'</span>
       <span className="text-neutral-100">{")"}</span>
       {"   "}
       <span className="text-orange-400">{`// ${cpfValid}`}</span>
@@ -67,7 +67,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">cl.rut.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678-5'</span>
+      <span className="text-green-400">'12345678-9'</span>
       <span className="text-neutral-100">{")"}</span>
       {"      "}
       <span className="text-neutral-500">{`// '${rutFormatted}'`}</span>
@@ -75,7 +75,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">cl.rut.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'12345678-5'</span>
+      <span className="text-green-400">'12345678-9'</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
       <span className="text-orange-400">{`// ${rutValid}`}</span>
@@ -85,7 +85,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">ar.cuit.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'20123456786'</span>
+      <span className="text-green-400">'20123456789'</span>
       <span className="text-neutral-100">{")"}</span>
       {"    "}
       <span className="text-neutral-500">{`// '${cuitFormatted}'`}</span>
@@ -93,7 +93,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">ar.cuit.</span>
       <span className="text-yellow-400">validate</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'20123456786'</span>
+      <span className="text-green-400">'20123456789'</span>
       <span className="text-neutral-100">{")"}</span>
       {"  "}
       <span className="text-orange-400">{`// ${cuitValid}`}</span>
@@ -179,7 +179,7 @@ const codeBlocks: Record<Tab, React.ReactNode> = {
       <span className="text-neutral-100">ar.phone.</span>
       <span className="text-yellow-400">format</span>
       <span className="text-neutral-100">{"("}</span>
-      <span className="text-green-400">'91155667788'</span>
+      <span className="text-green-400">'1155667788'</span>
       <span className="text-neutral-100">{")"}</span>
       {"\n"}
       <span className="text-neutral-500">{`// '${arPhone}'`}</span>

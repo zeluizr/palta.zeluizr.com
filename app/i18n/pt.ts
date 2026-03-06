@@ -44,7 +44,7 @@ export default {
           "Formate celular e fixo com código de país, DDD e máscara correta para cada região.",
       },
       zipcode: {
-        title: "CEPs",
+        title: "CEPs / Códigos Postais",
         description:
           "Formate e valide códigos postais do Brasil, Chile, Argentina, Colômbia e Peru.",
       },
@@ -69,19 +69,19 @@ export default {
     },
     chile: {
       name: "Chile",
-      docs: "RUT · CLP · Telefone · Código Postal",
+      docs: "RUT · CLP · Telefone · Cód. Postal",
     },
     argentina: {
       name: "Argentina",
-      docs: "CUIT/CUIL · DNI · ARS · Telefone · CPA",
+      docs: "CUIT/CUIL · DNI · ARS · Tel · CPA",
     },
     colombia: {
       name: "Colômbia",
-      docs: "NIT · CC · COP · Telefone · Código Postal",
+      docs: "NIT · CC · COP · Telefone · Cód. Postal",
     },
     peru: {
       name: "Peru",
-      docs: "RUC · DNI · PEN · Telefone · Código Postal",
+      docs: "RUC · DNI · PEN · Telefone · Cód. Postal",
     },
   },
 

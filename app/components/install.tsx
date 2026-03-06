@@ -44,7 +44,7 @@ export default function Install() {
           <p className="mt-4 text-neutral-400 text-lg">{t("install.subtitle")}</p>
         </motion.div>
 
-        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden mb-8">
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden mb-12">
           <div className="flex border-b border-neutral-800 px-2 pt-2 gap-1 overflow-x-auto">
             {pkgManagers.map((pkg) => (
               <button
