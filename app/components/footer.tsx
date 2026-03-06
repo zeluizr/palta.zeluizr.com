@@ -5,40 +5,39 @@ export default function Footer() {
 
   return (
     <footer className="px-6 py-8 bg-neutral-900 border-t border-neutral-800">
-      <div className="max-w-5xl mx-auto flex flex-col gap-3">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-neutral-400">
-            <span>{t("footer.madeWith")}</span>
-            <span>🥑</span>
-            <span>{t("footer.forLatam")}</span>
-          </div>
-          <div className="flex items-center gap-6 text-sm text-neutral-400">
-            <a
-              href="https://github.com/zeluizr/palta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              {t("footer.github")}
-            </a>
-            <a
-              href="https://www.npmjs.com/package/@zeluizr/palta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              {t("footer.npm")}
-            </a>
-            <span>&copy; 2026 palta &middot; {t("footer.license")}</span>
-          </div>
+      <div className="max-w-5xl mx-auto flex flex-col items-center gap-3 text-sm text-neutral-500">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <span className="flex items-center gap-1.5 text-neutral-400">
+            {t("footer.madeWith")} <span>🥑</span> {t("footer.forLatam")}
+          </span>
+          <span className="hidden sm:block text-neutral-700">·</span>
+          <a
+            href="https://github.com/zeluizr/palta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.npmjs.com/package/@zeluizr/palta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            npm
+          </a>
+          <span className="hidden sm:block text-neutral-700">·</span>
+          <span>&copy; 2026 palta &middot; MIT</span>
         </div>
-        <div className="flex items-center justify-center gap-1 text-xs text-neutral-600">
+
+        <div className="flex items-center gap-1.5 text-xs text-neutral-700">
           <span>{t("footer.byCommente")}</span>
           <a
             href="https://commente.me"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-neutral-400 transition-colors underline underline-offset-2"
+            className="hover:text-neutral-400 transition-colors"
           >
             commente.me
           </a>
@@ -48,7 +47,7 @@ export default function Footer() {
             href="https://integram.me"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-neutral-400 transition-colors underline underline-offset-2"
+            className="hover:text-neutral-400 transition-colors"
           >
             integram.me
           </a>
