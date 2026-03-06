@@ -1,4 +1,4 @@
-# palta-landing
+# 🥑 Palta
 
 Landing page do [palta](https://github.com/zeluizr/palta) — biblioteca de formatação e validação de dados da América Latina.
 

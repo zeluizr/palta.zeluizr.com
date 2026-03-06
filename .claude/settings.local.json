@@ -6,7 +6,15 @@
       "Bash(curl:*)",
       "Bash(git:*)",
       "Bash(gh api:*)",
-      "Skill(use-railway)"
+      "Skill(use-railway)",
+      "Bash(railway redeploy:*)",
+      "Bash(railway logs:*)",
+      "Bash(railway up:*)",
+      "Bash(railway service:*)",
+      "Bash(~/railway-api.sh)",
+      "Read(//Users/zeluizr/.agents/skills/use-railway/scripts/**)",
+      "Bash(railway variables list --json)",
+      "Bash(bash:*)"
     ]
   }
 }
