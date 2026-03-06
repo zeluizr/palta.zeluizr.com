@@ -39,12 +39,12 @@ export default function Header() {
   const LangSelect = () => (
     <Listbox value={currentLang} onChange={switchLang}>
       <div className="relative">
-        <ListboxButton className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors cursor-pointer">
+        <ListboxButton className="flex items-center gap-1.5 text-sm text-neutral-300 cursor-pointer rounded-md border border-neutral-700 bg-neutral-900 hover:border-neutral-500 hover:text-white transition-colors px-2.5 py-1.5">
           <span>{currentLang.flag}</span>
           <span className="font-medium">{currentLang.code.toUpperCase()}</span>
-          <ChevronsUpDown size={14} className="text-neutral-600" />
+          <ChevronsUpDown size={13} className="text-neutral-500" />
         </ListboxButton>
-        <ListboxOptions className="absolute right-0 mt-2 w-40 rounded-xl bg-neutral-900 border border-neutral-800 shadow-xl outline-none overflow-hidden z-50">
+        <ListboxOptions className="absolute right-0 mt-1.5 w-40 rounded-md bg-neutral-900 border border-neutral-700 shadow-xl outline-none overflow-hidden z-50">
           {langs.map((lang) => (
             <ListboxOption
               key={lang.code}
@@ -67,8 +67,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
-        <a href="#" className="flex items-center gap-2 text-[15px] font-semibold shrink-0">
-          <span className="text-xl">🥑</span> palta
+        <a href="/" className="flex items-center shrink-0 text-xl leading-none">
+          🥑
         </a>
 
         <nav className="hidden sm:flex items-center gap-6 text-sm text-neutral-400">
