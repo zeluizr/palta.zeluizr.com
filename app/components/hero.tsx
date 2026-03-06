@@ -42,7 +42,9 @@ export default function Hero() {
           </button>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            {t("hero.title")}{" "}
+            {t("hero.titleLine1")}
+            <br />
+            {t("hero.titleLine2")}{" "}
             <span className="text-palta-400 underline decoration-palta-700 decoration-4 underline-offset-4">
               {t("hero.titleHighlight")}
             </span>
