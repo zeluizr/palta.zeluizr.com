@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { GitPullRequestArrow, Clock, CalendarClock, Users } from "lucide-react";
 
-type PhaseKey = "next" | "planned" | "community";
+type PhaseKey = "planned" | "community";
 
 const phases: {
   key: PhaseKey;
@@ -12,28 +12,20 @@ const phases: {
   flags: Record<string, string>;
 }[] = [
   {
-    key: "next",
-    icon: Clock,
-    accent: "border-palta-600 bg-palta-950/40",
-    badge: "bg-palta-600 text-white",
-    countries: ["mexico", "uruguay", "ecuador"],
-    flags: { mexico: "🇲🇽", uruguay: "🇺🇾", ecuador: "🇪🇨" },
-  },
-  {
     key: "planned",
     icon: CalendarClock,
     accent: "border-neutral-600 bg-neutral-900/40",
     badge: "bg-neutral-700 text-neutral-200",
-    countries: ["venezuela", "bolivia", "paraguay", "dominicana", "costarica"],
-    flags: { venezuela: "🇻🇪", bolivia: "🇧🇴", paraguay: "🇵🇾", dominicana: "🇩🇴", costarica: "🇨🇷" },
+    countries: ["bolivia", "paraguay", "dominicana", "costarica", "panama"],
+    flags: { bolivia: "🇧🇴", paraguay: "🇵🇾", dominicana: "🇩🇴", costarica: "🇨🇷", panama: "🇵🇦" },
   },
   {
     key: "community",
     icon: Users,
     accent: "border-neutral-700 bg-neutral-900/20",
     badge: "bg-neutral-800 text-neutral-400",
-    countries: ["guatemala", "honduras", "elsalvador", "nicaragua", "panama", "cuba"],
-    flags: { guatemala: "🇬🇹", honduras: "🇭🇳", elsalvador: "🇸🇻", nicaragua: "🇳🇮", panama: "🇵🇦", cuba: "🇨🇺" },
+    countries: ["guatemala", "honduras", "elsalvador", "nicaragua", "cuba", "puertorico", "haiti", "jamaica", "trinidad"],
+    flags: { guatemala: "🇬🇹", honduras: "🇭🇳", elsalvador: "🇸🇻", nicaragua: "🇳🇮", cuba: "🇨🇺", puertorico: "🇵🇷", haiti: "🇭🇹", jamaica: "🇯🇲", trinidad: "🇹🇹" },
   },
 ];
 
