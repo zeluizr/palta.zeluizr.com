@@ -1,30 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useLocation, Link } from "react-router";
-import { Menu, X, ChevronsUpDown, Check } from "lucide-react";
-import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-
-const langs = [
-  { code: "es", flag: "🇪🇸", label: "Español" },
-  { code: "en", flag: "🇺🇸", label: "English" },
-  { code: "pt", flag: "🇧🇷", label: "Português" },
-];
+import { Link } from "react-router";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const { t, i18n } = useTranslation();
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const currentLang =
-    langs.find((l) => i18n.language.startsWith(l.code)) ?? langs[0];
-
-  const switchLang = (lang: typeof langs[0]) => {
-    const params = new URLSearchParams(location.search);
-    params.set("lang", lang.code);
-    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
-    i18n.changeLanguage(lang.code);
-  };
 
   const navLinks = [
     { href: "#features", label: t("header.features") },
@@ -35,34 +16,6 @@ export default function Header() {
     { href: "#changelog", label: t("header.changelog") },
     { href: "/demo", label: t("header.demo"), external: false },
   ];
-
-  const LangSelect = () => (
-    <Listbox value={currentLang} onChange={switchLang}>
-      <div className="relative">
-        <ListboxButton className="flex items-center gap-1.5 text-sm text-neutral-300 cursor-pointer rounded-md border border-neutral-700 bg-neutral-900 hover:border-neutral-500 hover:text-white transition-colors px-2.5 py-1.5">
-          <span>{currentLang.flag}</span>
-          <span className="font-medium">{currentLang.code.toUpperCase()}</span>
-          <ChevronsUpDown size={13} className="text-neutral-500" />
-        </ListboxButton>
-        <ListboxOptions className="absolute right-0 mt-1.5 w-40 rounded-md bg-neutral-900 border border-neutral-700 shadow-xl outline-none overflow-hidden z-50">
-          {langs.map((lang) => (
-            <ListboxOption
-              key={lang.code}
-              value={lang}
-              className="group flex items-center gap-3 px-3 py-2.5 text-sm cursor-pointer text-neutral-400 data-[focus]:bg-neutral-800 data-[focus]:text-white"
-            >
-              <span className="text-base">{lang.flag}</span>
-              <span className="flex-1">{lang.label}</span>
-              <Check
-                size={14}
-                className="text-palta-400 opacity-0 group-data-[selected]:opacity-100"
-              />
-            </ListboxOption>
-          ))}
-        </ListboxOptions>
-      </div>
-    </Listbox>
-  );
 
   return (
     <header className="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
@@ -94,7 +47,6 @@ export default function Header() {
         </nav>
 
         <div className="hidden sm:flex items-center gap-4">
-          <LangSelect />
           <a
             href="#install"
             className="bg-white text-neutral-900 text-sm font-medium px-4 py-1.5 rounded-lg hover:bg-neutral-200 transition-colors min-w-[140px] text-center"
@@ -135,16 +87,13 @@ export default function Header() {
               </a>
             )
           )}
-          <div className="flex items-center justify-between">
-            <LangSelect />
-            <a
-              href="#install"
-              className="bg-white text-neutral-900 text-sm font-medium px-4 py-2 rounded-lg hover:bg-neutral-200 transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("header.cta")}
-            </a>
-          </div>
+          <a
+            href="#install"
+            className="bg-white text-neutral-900 text-sm font-medium px-4 py-2 rounded-lg hover:bg-neutral-200 transition-colors"
+            onClick={() => setMobileOpen(false)}
+          >
+            {t("header.cta")}
+          </a>
         </div>
       )}
     </header>
