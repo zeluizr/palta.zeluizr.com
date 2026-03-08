@@ -6,6 +6,10 @@ const countries = [
   { key: "argentina", flag: "🇦🇷", borderColor: "border-l-argentina" },
   { key: "colombia",  flag: "🇨🇴", borderColor: "border-l-colombia"  },
   { key: "peru",      flag: "🇵🇪", borderColor: "border-l-peru"      },
+  { key: "mexico",    flag: "🇲🇽", borderColor: "border-l-mexico"    },
+  { key: "uruguay",   flag: "🇺🇾", borderColor: "border-l-uruguay"   },
+  { key: "venezuela", flag: "🇻🇪", borderColor: "border-l-venezuela" },
+  { key: "ecuador",   flag: "🇪🇨", borderColor: "border-l-ecuador"   },
 ] as const;
 
 export default function Countries() {
