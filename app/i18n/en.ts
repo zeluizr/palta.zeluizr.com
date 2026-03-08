@@ -29,7 +29,7 @@ export default {
 
   features: {
     title: "Everything you need",
-    subtitle: "A consistent API for 9 countries, 5 data types.",
+    subtitle: "A consistent API for 5 countries, 5 data types.",
     items: {
       documents: {
         title: "Tax documents",
@@ -39,7 +39,7 @@ export default {
       currency: {
         title: "Currencies",
         description:
-          "Format and parse BRL, CLP, ARS, COP, PEN, MXN, UYU, VES and USD with correct separators and symbols for each country.",
+          "Format and parse BRL, CLP, ARS, COP and PEN with correct separators and symbols for each country.",
       },
       phone: {
         title: "Phone numbers",
@@ -49,7 +49,7 @@ export default {
       zipcode: {
         title: "Zip codes",
         description:
-          "Format and validate zip codes for Brazil, Chile, Argentina, Colombia, Peru, Mexico, Uruguay and Ecuador.",
+          "Format and validate zip codes for Brazil, Chile, Argentina, Colombia and Peru.",
       },
       detect: {
         title: "Auto detection",
@@ -65,7 +65,7 @@ export default {
   },
 
   countries: {
-    title: "9 countries, one API",
+    title: "5 countries, one API",
     brasil: {
       name: "Brazil",
       docs: "CPF · CNPJ · BRL · Phone · ZIP",
@@ -85,22 +85,6 @@ export default {
     peru: {
       name: "Peru",
       docs: "RUC · DNI · PEN · Phone · Postal Code",
-    },
-    mexico: {
-      name: "Mexico",
-      docs: "RFC · CURP · MXN · Phone · ZIP",
-    },
-    uruguay: {
-      name: "Uruguay",
-      docs: "CI · RUT · UYU · Phone · ZIP",
-    },
-    venezuela: {
-      name: "Venezuela",
-      docs: "CI · RIF · VES · Phone · ZIP",
-    },
-    ecuador: {
-      name: "Ecuador",
-      docs: "CI · RUC · USD · Phone · ZIP",
     },
   },
 
@@ -142,20 +126,9 @@ export default {
     },
     releases: [
       {
-        version: "v1.3.0",
-        date: "March 2026",
-        tag: "latest",
-        changes: [
-          { type: "new", text: "Mexico support: RFC and CURP validation, MXN currency formatting, +52 phone number parsing, and 5-digit ZIP code." },
-          { type: "new", text: "Uruguay support: Cédula de Identidad and RUT validation, UYU currency formatting, and +598 phone number parsing." },
-          { type: "new", text: "Venezuela support: Cédula (V/E) and RIF validation, VES currency formatting, and +58 phone number parsing." },
-          { type: "new", text: "Ecuador support: Cédula de Identidad and RUC validation, USD currency formatting, +593 phone number parsing, and 6-digit ZIP code." },
-        ],
-      },
-      {
         version: "v1.2.0",
         date: "March 2026",
-        tag: "",
+        tag: "latest",
         changes: [
           { type: "new", text: "Peru support: RUC and DNI validation, PEN currency formatting, and phone number parsing." },
           { type: "new", text: "Introduced detect() — automatically identifies country and document type from a raw input string." },
@@ -206,6 +179,10 @@ export default {
       },
     },
     countries: {
+      mexico: { name: "Mexico", docs: "RFC · CURP · MXN · Phone · ZIP" },
+      uruguay: { name: "Uruguay", docs: "CI · RUT · UYU · Phone · ZIP" },
+      venezuela: { name: "Venezuela", docs: "CI · RIF · VES · Phone · ZIP" },
+      ecuador: { name: "Ecuador", docs: "CI · RUC · USD · Phone · ZIP" },
       bolivia: { name: "Bolivia", docs: "CI · NIT · BOB · Phone · ZIP" },
       paraguay: { name: "Paraguay", docs: "CI · RUC · PYG · Phone · ZIP" },
       dominicana: { name: "Dominican Rep.", docs: "Cédula · RNC · DOP · Phone" },
@@ -232,7 +209,7 @@ export default {
     zeroDeps: "Zero dependencies",
     treeShakeable: "Tree-shakeable",
     typescript: "TypeScript strict",
-    countries: "9 countries",
+    countries: "5 countries",
     bundle: "< 5kb gzipped",
     license: "MIT License",
   },
