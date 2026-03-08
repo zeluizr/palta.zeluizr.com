@@ -29,7 +29,7 @@ export default {
 
   features: {
     title: "Everything you need",
-    subtitle: "A consistent API for 9 countries, 5 data types.",
+    subtitle: "A consistent API for 23 countries, 5 data types.",
     items: {
       documents: {
         title: "Tax documents",
@@ -39,7 +39,7 @@ export default {
       currency: {
         title: "Currencies",
         description:
-          "Format and parse BRL, CLP, ARS, COP, PEN, MXN, UYU, VES and USD with correct separators and symbols for each country.",
+          "Format and parse ARS, BOB, BRL, CLP, COP, CRC, CUP, DOP, GTQ, HNL, HTG, JMD, MXN, NIO, PAB, PEN, PYG, TTD, USD, UYU, VES and more with correct separators and symbols.",
       },
       phone: {
         title: "Phone numbers",
@@ -49,7 +49,7 @@ export default {
       zipcode: {
         title: "Zip codes",
         description:
-          "Format and validate zip codes for Brazil, Chile, Argentina, Colombia, Peru, Mexico, Uruguay and Ecuador.",
+          "Format and validate zip codes for all 23 Latin American countries with the correct pattern for each region.",
       },
       detect: {
         title: "Auto detection",
@@ -65,7 +65,7 @@ export default {
   },
 
   countries: {
-    title: "9 countries, one API",
+    title: "23 countries, one API",
     brasil: {
       name: "Brazil",
       docs: "CPF · CNPJ · BRL · Phone · ZIP",
@@ -101,6 +101,62 @@ export default {
     ecuador: {
       name: "Ecuador",
       docs: "CI · RUC · USD · Phone · ZIP",
+    },
+    bolivia: {
+      name: "Bolivia",
+      docs: "NIT · CI · BOB · Phone · ZIP",
+    },
+    paraguay: {
+      name: "Paraguay",
+      docs: "RUC · CI · PYG · Phone · ZIP",
+    },
+    dominicana: {
+      name: "Dominican Rep.",
+      docs: "Cédula · RNC · DOP · Phone · ZIP",
+    },
+    costarica: {
+      name: "Costa Rica",
+      docs: "Cédula · Legal ID · DIMEX · CRC · Phone · ZIP",
+    },
+    panama: {
+      name: "Panama",
+      docs: "RUC · Cédula · PAB · Phone · ZIP",
+    },
+    guatemala: {
+      name: "Guatemala",
+      docs: "NIT · DPI · GTQ · Phone · ZIP",
+    },
+    honduras: {
+      name: "Honduras",
+      docs: "RTN · DNI · HNL · Phone · ZIP",
+    },
+    elsalvador: {
+      name: "El Salvador",
+      docs: "NIT · DUI · USD · Phone · ZIP",
+    },
+    nicaragua: {
+      name: "Nicaragua",
+      docs: "Cédula · RUC · NIO · Phone · ZIP",
+    },
+    cuba: {
+      name: "Cuba",
+      docs: "Identity Card · REEUP · CUP · Phone · ZIP",
+    },
+    puertorico: {
+      name: "Puerto Rico",
+      docs: "EIN · SSN · USD · Phone · ZIP",
+    },
+    haiti: {
+      name: "Haiti",
+      docs: "NIF · CIN · HTG · Phone · ZIP",
+    },
+    jamaica: {
+      name: "Jamaica",
+      docs: "TRN · NIN · JMD · Phone · ZIP",
+    },
+    trinidad: {
+      name: "Trinidad & Tobago",
+      docs: "TIN · NIS · TTD · Phone · ZIP",
     },
   },
 
@@ -142,34 +198,45 @@ export default {
     },
     releases: [
       {
-        version: "v1.3.0",
+        version: "v1.0.10",
         date: "March 2026",
         tag: "latest",
         changes: [
-          { type: "new", text: "Mexico support: RFC and CURP validation, MXN currency formatting, +52 phone number parsing, and 5-digit ZIP code." },
-          { type: "new", text: "Uruguay support: Cédula de Identidad and RUT validation, UYU currency formatting, and +598 phone number parsing." },
-          { type: "new", text: "Venezuela support: Cédula (V/E) and RIF validation, VES currency formatting, and +58 phone number parsing." },
-          { type: "new", text: "Ecuador support: Cédula de Identidad and RUC validation, USD currency formatting, +593 phone number parsing, and 6-digit ZIP code." },
+          { type: "new", text: "Support for Guatemala (gt), Honduras (hn), El Salvador (sv), Nicaragua (ni), Cuba (cu), Puerto Rico (pr), Haiti (ht), Jamaica (jm), Trinidad & Tobago (tt) — 9 Caribbean and Central American countries." },
         ],
       },
       {
-        version: "v1.2.0",
+        version: "v1.0.9",
         date: "March 2026",
         tag: "",
         changes: [
-          { type: "new", text: "Peru support: RUC and DNI validation, PEN currency formatting, and phone number parsing." },
-          { type: "new", text: "Introduced detect() — automatically identifies country and document type from a raw input string." },
-          { type: "improved", text: "Stronger TypeScript type inference across all validator and formatter return types." },
+          { type: "new", text: "Support for Bolivia (bo), Paraguay (py), Dominican Republic (do), Costa Rica (cr), Panama (pa) — 5 medium-priority countries." },
         ],
       },
       {
-        version: "v1.1.0",
+        version: "v1.0.8",
         date: "February 2026",
         tag: "",
         changes: [
-          { type: "new", text: "Colombia support: NIT and Cédula de Ciudadanía validation, COP currency formatting, and phone number parsing." },
+          { type: "new", text: "Uruguay (uy) support: Cédula de Identidad and RUT validation, UYU currency formatting, and +598 phone number parsing." },
+        ],
+      },
+      {
+        version: "v1.0.7",
+        date: "February 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Peru (pe) support: RUC and DNI validation, PEN currency formatting, and phone number parsing." },
+          { type: "new", text: "Introduced detect() — automatically identifies country and document type from a raw input string." },
+        ],
+      },
+      {
+        version: "v1.0.6",
+        date: "January 2026",
+        tag: "",
+        changes: [
+          { type: "new", text: "Colombia (co) support: NIT and Cédula de Ciudadanía validation, COP currency formatting, and phone number parsing." },
           { type: "new", text: "Tree-shakeable per-country imports — bundle only the countries your project actually uses." },
-          { type: "improved", text: "Overhauled check digit validation logic for higher accuracy across all supported document types." },
         ],
       },
       {
@@ -177,46 +244,35 @@ export default {
         date: "January 2026",
         tag: "",
         changes: [
-          { type: "new", text: "Brazil support: CPF and CNPJ validation, BRL currency formatting, phone number parsing, and ZIP code (CEP) validation." },
-          { type: "new", text: "Chile support: RUT validation, CLP currency formatting, phone number parsing, and postal code validation." },
-          { type: "new", text: "Argentina support: CUIT and CUIL validation, DNI parsing, ARS currency formatting, phone number parsing, and CPA postal code validation." },
-          { type: "new", text: "Zero external dependencies and under 5kb gzipped — designed to be lightweight from day one." },
+          { type: "new", text: "Initial release with Brazil (br), Chile (cl), Argentina (ar) — document validation, currency formatting, phone numbers and postal codes." },
+          { type: "new", text: "Zero external dependencies and under 5kb gzipped." },
         ],
       },
     ],
   },
 
   roadmap: {
-    title: "What's coming next",
-    subtitle: "palta is growing — and the community shapes what gets built. Vote on issues, open a PR, or suggest a new country.",
-    cta: "Contribute on GitHub",
-    contribute: "Want to help?",
-    phases: {
-      planned: {
-        label: "Planned",
-        description: "On the roadmap — contributions welcome to speed things up.",
+    title: "Mission accomplished",
+    subtitle: "Every Latin American country is supported in palta. Now we welcome improvements.",
+    allCountries: "Latin American countries supported",
+    contribute: "Want to contribute?",
+    contributeSubtitle: "The project has complete regional coverage. We accept bug fixes, accuracy improvements, and new document types within existing countries.",
+    contributionTypes: {
+      bugfix: {
+        title: "Bug fix",
+        description: "Incorrect algorithm, edge case not covered, wrong format.",
       },
-      community: {
-        label: "Community",
-        description: "Requested by the community. Open a PR to claim one.",
+      newdoc: {
+        title: "New document",
+        description: "A country already exists but is missing a relevant document type.",
+      },
+      tests: {
+        title: "Test improvements",
+        description: "More test cases, better coverage for edge cases.",
       },
     },
-    countries: {
-      bolivia: { name: "Bolivia", docs: "CI · NIT · BOB · Phone · ZIP" },
-      paraguay: { name: "Paraguay", docs: "CI · RUC · PYG · Phone · ZIP" },
-      dominicana: { name: "Dominican Rep.", docs: "Cédula · RNC · DOP · Phone" },
-      costarica: { name: "Costa Rica", docs: "Cédula · DIMEX · CRC · Phone" },
-      panama: { name: "Panama", docs: "Cédula · RUC · PAB · Phone" },
-      guatemala: { name: "Guatemala", docs: "DPI · NIT · GTQ · Phone" },
-      honduras: { name: "Honduras", docs: "Identidad · RTN · HNL · Phone" },
-      elsalvador: { name: "El Salvador", docs: "DUI · NIT · USD · Phone" },
-      nicaragua: { name: "Nicaragua", docs: "Cédula · RUC · NIO · Phone" },
-      cuba: { name: "Cuba", docs: "Carnet CI · CUP · Phone" },
-      puertorico: { name: "Puerto Rico", docs: "SSN · EIN · USD · Phone" },
-      haiti: { name: "Haiti", docs: "NIF · HTG · Phone" },
-      jamaica: { name: "Jamaica", docs: "TRN · JMD · Phone" },
-      trinidad: { name: "Trinidad & Tobago", docs: "BIR · TTD · Phone" },
-    },
+    cta: "Open an issue on GitHub",
+    ctaSecondary: "View source code",
   },
 
   usedBy: {
@@ -228,7 +284,7 @@ export default {
     zeroDeps: "Zero dependencies",
     treeShakeable: "Tree-shakeable",
     typescript: "TypeScript strict",
-    countries: "9 countries",
+    countries: "23 countries",
     bundle: "< 5kb gzipped",
     license: "MIT License",
   },

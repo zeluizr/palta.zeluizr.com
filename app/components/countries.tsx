@@ -1,15 +1,29 @@
 import { useTranslation } from "react-i18next";
 
 const countries = [
-  { key: "brasil",    flag: "🇧🇷", borderColor: "border-l-brasil"    },
-  { key: "chile",     flag: "🇨🇱", borderColor: "border-l-chile"     },
-  { key: "argentina", flag: "🇦🇷", borderColor: "border-l-argentina" },
-  { key: "colombia",  flag: "🇨🇴", borderColor: "border-l-colombia"  },
-  { key: "peru",      flag: "🇵🇪", borderColor: "border-l-peru"      },
-  { key: "mexico",    flag: "🇲🇽", borderColor: "border-l-mexico"    },
-  { key: "uruguay",   flag: "🇺🇾", borderColor: "border-l-uruguay"   },
-  { key: "venezuela", flag: "🇻🇪", borderColor: "border-l-venezuela" },
-  { key: "ecuador",   flag: "🇪🇨", borderColor: "border-l-ecuador"   },
+  { key: "brasil",      flag: "🇧🇷", borderColor: "border-l-brasil"      },
+  { key: "chile",       flag: "🇨🇱", borderColor: "border-l-chile"       },
+  { key: "argentina",   flag: "🇦🇷", borderColor: "border-l-argentina"   },
+  { key: "colombia",    flag: "🇨🇴", borderColor: "border-l-colombia"    },
+  { key: "peru",        flag: "🇵🇪", borderColor: "border-l-peru"        },
+  { key: "mexico",      flag: "🇲🇽", borderColor: "border-l-mexico"      },
+  { key: "uruguay",     flag: "🇺🇾", borderColor: "border-l-uruguay"     },
+  { key: "venezuela",   flag: "🇻🇪", borderColor: "border-l-venezuela"   },
+  { key: "ecuador",     flag: "🇪🇨", borderColor: "border-l-ecuador"     },
+  { key: "bolivia",     flag: "🇧🇴", borderColor: "border-l-bolivia"     },
+  { key: "paraguay",    flag: "🇵🇾", borderColor: "border-l-paraguay"    },
+  { key: "dominicana",  flag: "🇩🇴", borderColor: "border-l-dominicana"  },
+  { key: "costarica",   flag: "🇨🇷", borderColor: "border-l-costarica"   },
+  { key: "panama",      flag: "🇵🇦", borderColor: "border-l-panama"      },
+  { key: "guatemala",   flag: "🇬🇹", borderColor: "border-l-guatemala"   },
+  { key: "honduras",    flag: "🇭🇳", borderColor: "border-l-honduras"    },
+  { key: "elsalvador",  flag: "🇸🇻", borderColor: "border-l-elsalvador"  },
+  { key: "nicaragua",   flag: "🇳🇮", borderColor: "border-l-nicaragua"   },
+  { key: "cuba",        flag: "🇨🇺", borderColor: "border-l-cuba"        },
+  { key: "puertorico",  flag: "🇵🇷", borderColor: "border-l-puertorico"  },
+  { key: "haiti",       flag: "🇭🇹", borderColor: "border-l-haiti"       },
+  { key: "jamaica",     flag: "🇯🇲", borderColor: "border-l-jamaica"     },
+  { key: "trinidad",    flag: "🇹🇹", borderColor: "border-l-trinidad"    },
 ] as const;
 
 export default function Countries() {
@@ -24,7 +38,7 @@ export default function Countries() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {countries.map(({ key, flag, borderColor }, i) => (
             <div
               key={key}

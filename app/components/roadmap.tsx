@@ -1,33 +1,20 @@
 import { useTranslation } from "react-i18next";
-import { GitPullRequestArrow, Clock, CalendarClock, Users } from "lucide-react";
+import { GitPullRequestArrow, CheckCircle2, Code2 } from "lucide-react";
 
-type PhaseKey = "planned" | "community";
-
-const phases: {
-  key: PhaseKey;
-  icon: React.ElementType;
-  accent: string;
-  badge: string;
-  countries: string[];
-  flags: Record<string, string>;
-}[] = [
+const contributionTypes = [
   {
-    key: "planned",
-    icon: CalendarClock,
-    accent: "border-neutral-600 bg-neutral-900/40",
-    badge: "bg-neutral-700 text-neutral-200",
-    countries: ["bolivia", "paraguay", "dominicana", "costarica", "panama"],
-    flags: { bolivia: "🇧🇴", paraguay: "🇵🇾", dominicana: "🇩🇴", costarica: "🇨🇷", panama: "🇵🇦" },
+    key: "bugfix",
+    icon: Code2,
   },
   {
-    key: "community",
-    icon: Users,
-    accent: "border-neutral-700 bg-neutral-900/20",
-    badge: "bg-neutral-800 text-neutral-400",
-    countries: ["guatemala", "honduras", "elsalvador", "nicaragua", "cuba", "puertorico", "haiti", "jamaica", "trinidad"],
-    flags: { guatemala: "🇬🇹", honduras: "🇭🇳", elsalvador: "🇸🇻", nicaragua: "🇳🇮", cuba: "🇨🇺", puertorico: "🇵🇷", haiti: "🇭🇹", jamaica: "🇯🇲", trinidad: "🇹🇹" },
+    key: "newdoc",
+    icon: GitPullRequestArrow,
   },
-];
+  {
+    key: "tests",
+    icon: CheckCircle2,
+  },
+] as const;
 
 export default function Roadmap() {
   const { t } = useTranslation();
@@ -46,84 +33,81 @@ export default function Roadmap() {
           <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
             {t("roadmap.subtitle")}
           </p>
-          <a
-            href="https://github.com/zeluizr/palta/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-6 bg-palta-600 hover:bg-palta-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-colors"
-          >
-            <GitPullRequestArrow size={16} />
-            {t("roadmap.cta")}
-          </a>
         </div>
 
-        {/* Phases */}
-        <div className="flex flex-col gap-10">
-          {phases.map((phase) => {
-            const Icon = phase.icon;
-            const phaseData = t(`roadmap.phases.${phase.key}`, { returnObjects: true }) as {
-              label: string;
-              description: string;
-            };
+        {/* Big number display */}
+        <div className="text-center mb-16">
+          <div className="inline-flex flex-col items-center gap-4 bg-neutral-900/60 border border-neutral-800 rounded-2xl p-12">
+            <span className="text-8xl font-bold text-palta-500">23</span>
+            <p className="text-neutral-300 text-lg font-medium">
+              {t("roadmap.allCountries")}
+            </p>
+          </div>
+        </div>
 
-            return (
-              <div key={phase.key} className={`rounded-2xl border ${phase.accent} p-6`}>
-                {/* Phase header */}
-                <div className="flex items-start gap-3 mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${phase.badge}`}>
-                      <Icon size={12} />
-                      {phaseData.label}
-                    </span>
+        {/* Contribution section */}
+        <div className="mb-12">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold mb-3">{t("roadmap.contribute")}</h3>
+            <p className="text-neutral-400 max-w-2xl mx-auto">
+              {t("roadmap.contributeSubtitle")}
+            </p>
+          </div>
+
+          {/* Contribution type cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {contributionTypes.map((type) => {
+              const Icon = type.icon;
+              const typeData = t(`roadmap.contributionTypes.${type.key}`, {
+                returnObjects: true,
+              }) as {
+                title: string;
+                description: string;
+              };
+
+              return (
+                <div
+                  key={type.key}
+                  className="bg-neutral-900/40 border border-neutral-800 rounded-xl p-6 hover:border-neutral-700 transition-colors"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 p-2.5 bg-palta-500/10 rounded-lg">
+                      <Icon size={20} className="text-palta-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-neutral-100 mb-2">
+                        {typeData.title}
+                      </h4>
+                      <p className="text-sm text-neutral-500 leading-relaxed">
+                        {typeData.description}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm text-neutral-500 leading-relaxed pt-0.5">
-                    {phaseData.description}
-                  </p>
                 </div>
-
-                {/* Countries grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {phase.countries.map((key) => {
-                    const country = t(`roadmap.countries.${key}`, { returnObjects: true }) as {
-                      name: string;
-                      docs: string;
-                    };
-                    return (
-                      <div
-                        key={key}
-                        className="flex items-start gap-3 bg-neutral-900/60 border border-neutral-800 rounded-xl p-4"
-                      >
-                        <span className="text-2xl leading-none mt-0.5">
-                          {phase.flags[key]}
-                        </span>
-                        <div>
-                          <div className="font-semibold text-sm text-neutral-100 mb-1">
-                            {country.name}
-                          </div>
-                          <div className="text-xs text-neutral-500 leading-relaxed">
-                            {country.docs}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-neutral-500 text-sm mb-3">{t("roadmap.contribute")}</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://github.com/zeluizr/palta/issues/new"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 bg-palta-600 hover:bg-palta-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-colors"
           >
             <GitPullRequestArrow size={16} />
             {t("roadmap.cta")}
+          </a>
+          <a
+            href="https://github.com/zeluizr/palta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-colors"
+          >
+            <Code2 size={16} />
+            {t("roadmap.ctaSecondary")}
           </a>
         </div>
       </div>

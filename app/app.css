@@ -37,6 +37,20 @@
   --color-uruguay: #5b9bd5;
   --color-venezuela: #cf142b;
   --color-ecuador: #ffd100;
+  --color-bolivia: #d52b1e;
+  --color-paraguay: #0038a8;
+  --color-dominicana: #002d62;
+  --color-costarica: #002b7f;
+  --color-panama: #005293;
+  --color-guatemala: #4997d0;
+  --color-honduras: #0073cf;
+  --color-elsalvador: #0f47af;
+  --color-nicaragua: #3e5fa3;
+  --color-cuba: #cb1515;
+  --color-puertorico: #ed0000;
+  --color-haiti: #00209f;
+  --color-jamaica: #fed100;
+  --color-trinidad: #ce1126;
 
   /* Fontes */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
