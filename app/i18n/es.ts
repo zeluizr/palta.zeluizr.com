@@ -29,7 +29,7 @@ export default {
 
   features: {
     title: "Todo lo que necesitas",
-    subtitle: "Una API consistente para 9 países, 5 tipos de datos.",
+    subtitle: "Una API consistente para 5 países, 5 tipos de datos.",
     items: {
       documents: {
         title: "Documentos fiscales",
@@ -39,7 +39,7 @@ export default {
       currency: {
         title: "Monedas",
         description:
-          "Formatea y parsea CLP, ARS, BRL, COP, PEN, MXN, UYU, VES y USD con separadores y símbolos correctos de cada país.",
+          "Formatea y parsea CLP, ARS, BRL, COP y PEN con separadores y símbolos correctos de cada país.",
       },
       phone: {
         title: "Teléfonos",
@@ -49,7 +49,7 @@ export default {
       zipcode: {
         title: "Códigos postales",
         description:
-          "Formatea y valida códigos postales de Chile, Argentina, Brasil, Colombia, Perú, México, Uruguay y Ecuador.",
+          "Formatea y valida códigos postales de Chile, Argentina, Brasil, Colombia y Perú.",
       },
       detect: {
         title: "Detección automática",
@@ -65,14 +65,14 @@ export default {
   },
 
   countries: {
-    title: "9 países, una API",
+    title: "5 países, una API",
     brasil: {
       name: "Brasil",
-      docs: "CPF · CNPJ · BRL · Telefone · CEP",
+      docs: "CPF · CNPJ · BRL · Teléfono · CEP",
     },
     chile: {
       name: "Chile",
-      docs: "RUT · CLP · Telefone · Cód. Postal",
+      docs: "RUT · CLP · Teléfono · Cód. Postal",
     },
     argentina: {
       name: "Argentina",
@@ -80,27 +80,11 @@ export default {
     },
     colombia: {
       name: "Colombia",
-      docs: "NIT · CC · COP · Telefone · Cód. Postal",
+      docs: "NIT · CC · COP · Teléfono · Cód. Postal",
     },
     peru: {
       name: "Perú",
-      docs: "RUC · DNI · PEN · Telefone · Cód. Postal",
-    },
-    mexico: {
-      name: "México",
-      docs: "RFC · CURP · MXN · Teléfono · CP",
-    },
-    uruguay: {
-      name: "Uruguay",
-      docs: "CI · RUT · UYU · Teléfono · CP",
-    },
-    venezuela: {
-      name: "Venezuela",
-      docs: "CI · RIF · VES · Teléfono · CP",
-    },
-    ecuador: {
-      name: "Ecuador",
-      docs: "CI · RUC · USD · Teléfono · CP",
+      docs: "RUC · DNI · PEN · Teléfono · Cód. Postal",
     },
   },
 
@@ -142,20 +126,9 @@ export default {
     },
     releases: [
       {
-        version: "v1.3.0",
-        date: "Marzo 2026",
-        tag: "latest",
-        changes: [
-          { type: "new", text: "Soporte México: validación de RFC y CURP, formateo de MXN, teléfonos con +52 y código postal de 5 dígitos." },
-          { type: "new", text: "Soporte Uruguay: validación de Cédula de Identidad y RUT, formateo de UYU y teléfonos con +598." },
-          { type: "new", text: "Soporte Venezuela: validación de Cédula (V/E) y RIF, formateo de VES y teléfonos con +58." },
-          { type: "new", text: "Soporte Ecuador: validación de Cédula de Identidad y RUC, formateo de USD, teléfonos con +593 y código postal de 6 dígitos." },
-        ],
-      },
-      {
         version: "v1.2.0",
         date: "Marzo 2026",
-        tag: "",
+        tag: "latest",
         changes: [
           { type: "new", text: "Soporte Perú: validación de RUC, DNI, formateo de PEN y teléfonos peruanos." },
           { type: "new", text: "Nueva función detect() — detecta automáticamente el país y el tipo de dato a partir del valor ingresado." },
@@ -206,6 +179,10 @@ export default {
       },
     },
     countries: {
+      mexico: { name: "México", docs: "RFC · CURP · MXN · Teléfono · CP" },
+      uruguay: { name: "Uruguay", docs: "CI · RUT · UYU · Teléfono · CP" },
+      venezuela: { name: "Venezuela", docs: "CI · RIF · VES · Teléfono · CP" },
+      ecuador: { name: "Ecuador", docs: "CI · RUC · USD · Teléfono · CP" },
       bolivia: { name: "Bolivia", docs: "CI · NIT · BOB · Teléfono · CP" },
       paraguay: { name: "Paraguay", docs: "CI · RUC · PYG · Teléfono · CP" },
       dominicana: { name: "Rep. Dominicana", docs: "Cédula · RNC · DOP · Teléfono" },
@@ -232,7 +209,7 @@ export default {
     zeroDeps: "Zero dependencies",
     treeShakeable: "Tree-shakeable",
     typescript: "TypeScript strict",
-    countries: "9 países",
+    countries: "5 países",
     bundle: "< 5kb gzipped",
     license: "MIT License",
   },

@@ -16,8 +16,8 @@ const phases: {
     icon: CalendarClock,
     accent: "border-neutral-600 bg-neutral-900/40",
     badge: "bg-neutral-700 text-neutral-200",
-    countries: ["bolivia", "paraguay", "dominicana", "costarica", "panama"],
-    flags: { bolivia: "🇧🇴", paraguay: "🇵🇾", dominicana: "🇩🇴", costarica: "🇨🇷", panama: "🇵🇦" },
+    countries: ["mexico", "uruguay", "venezuela", "ecuador", "bolivia", "paraguay", "dominicana", "costarica", "panama"],
+    flags: { mexico: "🇲🇽", uruguay: "🇺🇾", venezuela: "🇻🇪", ecuador: "🇪🇨", bolivia: "🇧🇴", paraguay: "🇵🇾", dominicana: "🇩🇴", costarica: "🇨🇷", panama: "🇵🇦" },
   },
   {
     key: "community",

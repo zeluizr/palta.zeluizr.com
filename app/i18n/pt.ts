@@ -29,7 +29,7 @@ export default {
 
   features: {
     title: "Tudo que você precisa",
-    subtitle: "Uma API consistente para 9 países, 5 tipos de dados.",
+    subtitle: "Uma API consistente para 5 países, 5 tipos de dados.",
     items: {
       documents: {
         title: "Documentos fiscais",
@@ -39,7 +39,7 @@ export default {
       currency: {
         title: "Moedas",
         description:
-          "Formate e parse BRL, CLP, ARS, COP, PEN, MXN, UYU, VES e USD com separadores e símbolos corretos de cada país.",
+          "Formate e parse BRL, CLP, ARS, COP e PEN com separadores e símbolos corretos de cada país.",
       },
       phone: {
         title: "Telefones",
@@ -49,7 +49,7 @@ export default {
       zipcode: {
         title: "CEPs / Códigos Postais",
         description:
-          "Formate e valide códigos postais do Brasil, Chile, Argentina, Colômbia, Peru, México, Uruguai e Equador.",
+          "Formate e valide códigos postais do Brasil, Chile, Argentina, Colômbia e Peru.",
       },
       detect: {
         title: "Detecção automática",
@@ -65,7 +65,7 @@ export default {
   },
 
   countries: {
-    title: "9 países, uma API",
+    title: "5 países, uma API",
     brasil: {
       name: "Brasil",
       docs: "CPF · CNPJ · BRL · Telefone · CEP",
@@ -85,22 +85,6 @@ export default {
     peru: {
       name: "Peru",
       docs: "RUC · DNI · PEN · Telefone · Cód. Postal",
-    },
-    mexico: {
-      name: "México",
-      docs: "RFC · CURP · MXN · Telefone · CEP",
-    },
-    uruguay: {
-      name: "Uruguai",
-      docs: "CI · RUT · UYU · Telefone · CEP",
-    },
-    venezuela: {
-      name: "Venezuela",
-      docs: "CI · RIF · VES · Telefone · CEP",
-    },
-    ecuador: {
-      name: "Equador",
-      docs: "CI · RUC · USD · Telefone · CEP",
     },
   },
 
@@ -142,20 +126,9 @@ export default {
     },
     releases: [
       {
-        version: "v1.3.0",
-        date: "Março 2026",
-        tag: "latest",
-        changes: [
-          { type: "new", text: "Suporte ao México: validação de RFC e CURP, formatação de MXN, telefones com +52 e CEP de 5 dígitos." },
-          { type: "new", text: "Suporte ao Uruguai: validação de Cédula de Identidade e RUT, formatação de UYU e telefones com +598." },
-          { type: "new", text: "Suporte à Venezuela: validação de Cédula (V/E) e RIF, formatação de VES e telefones com +58." },
-          { type: "new", text: "Suporte ao Equador: validação de Cédula de Identidade e RUC, formatação de USD, telefones com +593 e CEP de 6 dígitos." },
-        ],
-      },
-      {
         version: "v1.2.0",
         date: "Março 2026",
-        tag: "",
+        tag: "latest",
         changes: [
           { type: "new", text: "Suporte ao Peru: validação de RUC e DNI, formatação de PEN e telefones peruanos" },
           { type: "new", text: "Nova função detect() — identifica automaticamente o país e o tipo do dado informado" },
@@ -206,6 +179,10 @@ export default {
       },
     },
     countries: {
+      mexico: { name: "México", docs: "RFC · CURP · MXN · Telefone · CEP" },
+      uruguay: { name: "Uruguai", docs: "CI · RUT · UYU · Telefone · CEP" },
+      venezuela: { name: "Venezuela", docs: "CI · RIF · VES · Telefone · CEP" },
+      ecuador: { name: "Equador", docs: "CI · RUC · USD · Telefone · CEP" },
       bolivia: { name: "Bolívia", docs: "CI · NIT · BOB · Telefone · CEP" },
       paraguay: { name: "Paraguai", docs: "CI · RUC · PYG · Telefone · CEP" },
       dominicana: { name: "Rep. Dominicana", docs: "Cédula · RNC · DOP · Telefone" },
@@ -232,7 +209,7 @@ export default {
     zeroDeps: "Zero dependencies",
     treeShakeable: "Tree-shakeable",
     typescript: "TypeScript strict",
-    countries: "9 países",
+    countries: "5 países",
     bundle: "< 5kb gzipped",
     license: "MIT License",
   },
